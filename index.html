@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Asesoría Jurídica Profesional en Ensenada, Baja California. Más de 33 años de experiencia en Derecho Corporativo, Civil, Familiar, Mercantil, Laboral y Penal. Alta solidez y ética legal.">
+  <title>Asesoría Jurídica Profesional | 33+ Años de Trayectoria en Ensenada</title>
+
+  <!-- Google Fonts: Cinzel (Display/Serif) & Plus Jakarta Sans (Sans-Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 CDN for Legal & Modern Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            oxford: {
+              950: '#070B14',
+              900: '#0B1120',
+              850: '#0F172A',
+              800: '#1B263B',
+              700: '#283655'
+            },
+            gold: {
+              300: '#FDE68A',
+              400: '#FBBF24',
+              500: '#D97706',
+              600: '#B45309',
+              700: '#92400E',
+              gradientStart: '#F59E0B',
+              gradientEnd: '#B45309'
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #070B14;
+      color: #E2E8F0;
+    }
+    .font-serif-display {
+      font-family: 'Cinzel', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FDE68A 0%, #D97706 50%, #B45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+    }
+    .gold-gradient-bg:hover {
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    }
+    .gold-border-glow {
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      box-shadow: 0 0 15px rgba(217, 119, 6, 0.05);
+    }
+    .gold-border-glow:hover {
+      border-color: rgba(245, 158, 11, 0.5);
+      box-shadow: 0 0 25px rgba(217, 119, 6, 0.15);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-oxford-950 text-slate-200 antialiased selection:bg-amber-500 selection:text-oxford-950">
+
+  <!-- 1. TOP BAR / AVISO SUPERIOR -->
+  <div class="bg-oxford-900 border-b border-slate-800/80 text-xs py-2.5 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-clock text-amber-500"></i>
+          <span>Lun - Vie: 9:00 AM - 6:00 PM | Sáb: 9:00 AM - 2:00 PM</span>
+        </span>
+        <span class="hidden sm:inline text-slate-700">|</span>
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-location-dot text-amber-500"></i>
+          <span>Dirección de prueba #123, Col. Centro, Ensenada, B.C.</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+526461000001" class="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-medium transition-colors">
+          <i class="fa-solid fa-phone text-xs"></i>
+          <span>Llamada Directa: +52 (646) 100-0001</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR (STICKY) -->
+  <header id="header" class="sticky top-0 z-40 bg-oxford-950/90 backdrop-blur-md border-b border-slate-800/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-md bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-oxford-950 shadow-md group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-scale-balanced text-xl"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif-display font-bold text-lg leading-tight tracking-wider text-slate-100 group-hover:text-amber-400 transition-colors">
+              ASESORÍA JURÍDICA PROFESIONAL
+            </span>
+            <span class="text-[11px] font-semibold text-amber-500 uppercase tracking-widest">
+              +33 Años de Trayectoria
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#inicio" class="hover:text-amber-400 transition-colors py-1">Inicio</a>
+          <a href="#nosotros" class="hover:text-amber-400 transition-colors py-1">Nosotros</a>
+          <a href="#servicios" class="hover:text-amber-400 transition-colors py-1">Áreas de Práctica</a>
+          <a href="#ventajas" class="hover:text-amber-400 transition-colors py-1">Por Qué Elegirnos</a>
+          <a href="#contacto" class="hover:text-amber-400 transition-colors py-1">Contacto</a>
+        </nav>
+
+        <!-- Desktop CTA Button -->
+        <div class="hidden lg:flex items-center">
+          <a href="#contacto" class="gold-gradient-bg text-oxford-950 font-bold px-5 py-2.5 rounded-lg text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-amber-900/20">
+            <i class="fa-solid fa-calendar-check mr-2"></i>Agendar Consulta
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-btn" aria-label="Abrir menú de navegación" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-oxford-850 focus:outline-none">
+          <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-oxford-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#inicio" class="mobile-link block py-2 text-slate-200 hover:text-amber-400 font-medium border-b border-slate-800">Inicio</a>
+      <a href="#nosotros" class="mobile-link block py-2 text-slate-200 hover:text-amber-400 font-medium border-b border-slate-800">Nosotros</a>
+      <a href="#servicios" class="mobile-link block py-2 text-slate-200 hover:text-amber-400 font-medium border-b border-slate-800">Áreas de Práctica</a>
+      <a href="#ventajas" class="mobile-link block py-2 text-slate-200 hover:text-amber-400 font-medium border-b border-slate-800">Por Qué Elegirnos</a>
+      <a href="#contacto" class="mobile-link block py-2 text-slate-200 hover:text-amber-400 font-medium border-b border-slate-800">Contacto</a>
+      <div class="pt-2">
+        <a href="#contacto" class="mobile-link block w-full text-center gold-gradient-bg text-oxford-950 font-bold py-3 rounded-lg text-sm">
+          <i class="fa-solid fa-calendar-check mr-2"></i>Agendar Consulta
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section id="inicio" class="relative py-20 lg:py-28 overflow-hidden bg-oxford-950 border-b border-slate-800/50">
+    <!-- Subtle Ambient Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        
+        <!-- Experience Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide mb-6 shadow-sm">
+          <i class="fa-solid fa-award text-amber-500"></i>
+          <span>Más de 3 décadas de excelencia jurídica</span>
+        </div>
+
+        <!-- H1 Title -->
+        <h1 class="font-serif-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-tight mb-6">
+          Solidez Legal, Ética y <span class="gold-gradient-text">Experiencia</span> a su Servicio
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto font-normal">
+          Defendemos sus intereses y patrimonio con rigor técnico, confidencialidad y una trayectoria ininterrumpida de 33 años protegiendo a familias y empresas en Baja California.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="#contacto" class="w-full sm:w-auto gold-gradient-bg text-oxford-950 font-bold px-8 py-4 rounded-xl text-base transition-all transform hover:-translate-y-1 shadow-lg shadow-amber-900/30 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Contactar a un Abogado</span>
+          </a>
+          <a href="#servicios" class="w-full sm:w-auto border border-amber-500/40 hover:border-amber-400 text-slate-200 hover:text-white bg-slate-900/60 hover:bg-slate-850 font-semibold px-8 py-4 rounded-xl text-base transition-all flex items-center justify-center gap-2">
+            <span>Conocer Áreas de Práctica</span>
+            <i class="fa-solid fa-chevron-right text-xs text-amber-400"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- KPI / Metrics Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-slate-800/80">
+        <div class="glass-card p-6 rounded-xl text-center gold-border-glow transition-all">
+          <div class="font-serif-display text-3xl sm:text-4xl font-bold text-amber-400 mb-1">33+</div>
+          <div class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-wider">Años de Experiencia</div>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center gold-border-glow transition-all">
+          <div class="font-serif-display text-3xl sm:text-4xl font-bold text-amber-400 mb-1">+1,500</div>
+          <div class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-wider">Casos Resueltos</div>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center gold-border-glow transition-all">
+          <div class="font-serif-display text-3xl sm:text-4xl font-bold text-amber-400 mb-1">100%</div>
+          <div class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-wider">Confidencialidad</div>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center gold-border-glow transition-all">
+          <div class="font-serif-display text-3xl sm:text-4xl font-bold text-amber-400 mb-1">Integral</div>
+          <div class="text-xs sm:text-sm text-slate-400 font-medium uppercase tracking-wider">Atención Multidisciplinaria</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. SOBRE NOSOTROS / CONFIANZA -->
+  <section id="nosotros" class="py-20 bg-oxford-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Presentation text -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 text-amber-500 font-semibold text-xs uppercase tracking-widest">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Trayectoria y Compromiso</span>
+          </div>
+          
+          <h2 class="font-serif-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+            Tres Décadas Construyendo Relaciones de Confianza y Casos de Éxito
+          </h2>
+
+          <p class="text-slate-300 leading-relaxed text-base">
+            Fundada en Ensenada, Baja California, <strong class="text-amber-400 font-semibold">ASESORÍA JURÍDICA PROFESIONAL</strong> ha mantenido una filosofía inquebrantable basada en la ética, la prevención legal efectiva y el rigor en tribunales.
+          </p>
+
+          <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+            Entendemos que cada asunto legal implica aspectos patrimoniales, emocionales y corporativos críticos. Por ello, combinamos la agilidad del derecho moderno con la solidez estratégica que otorgan más de 33 años de práctica jurídica continua.
+          </p>
+
+          <!-- Pillars -->
+          <div class="grid sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-lg bg-oxford-950 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <h3 class="font-bold text-white text-sm">Honestidad</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">Diagnósticos transparentes e imparciales desde la primera entrevista.</p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-oxford-950 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-gavel"></i>
+              </div>
+              <h3 class="font-bold text-white text-sm">Rigor Técnico</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">Estrategias procesales sólidas fundadas en la jurisprudencia actual.</p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-oxford-950 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <h3 class="font-bold text-white text-sm">Trato Directo</h3>
+              <p class="text-slate-400 text-xs leading-relaxed">Atención personalizada y acompañamiento constante en cada fase.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Institutional Seal Card -->
+        <div class="lg:col-span-5">
+          <div class="glass-card p-8 rounded-2xl border border-amber-500/30 text-center relative overflow-hidden space-y-6">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
+            
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 text-oxford-950 flex items-center justify-center shadow-xl">
+              <i class="fa-solid fa-shield-halved text-3xl"></i>
+            </div>
+
+            <h3 class="font-serif-display text-2xl font-bold text-white">Garantía de Compromiso Ético</h3>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+              "Nuestra firma no solo busca resolver litigios, sino prevenir contingencias futuras para asegurar la paz jurídica de nuestros clientes."
+            </p>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col items-center">
+              <span class="font-serif-display text-lg font-bold text-amber-400">Asesoría Jurídica Profesional</span>
+              <span class="text-xs text-slate-400 uppercase tracking-widest mt-1">Ensenada, Baja California</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ÁREAS DE PRÁCTICA (GRID DE TARJETAS) -->
+  <section id="servicios" class="py-20 bg-oxford-950 relative border-t border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 text-amber-500 font-semibold text-xs uppercase tracking-widest">
+          <i class="fa-solid fa-briefcase"></i>
+          <span>Servicios Legales Integrales</span>
+        </div>
+        <h2 class="font-serif-display text-3xl sm:text-4xl font-bold text-white">
+          Nuestras Áreas de Práctica Especializada
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Brindamos representación legal experta y consultoría de alto nivel adaptada a las necesidades específicas de particulares y corporativos.
+        </p>
+      </div>
+
+      <!-- Practice Areas Grid (3 columns on desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Derecho Corporativo y Empresas</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Constitución de sociedades, gobierno corporativo, fusiones, adquisiciones, cumplimiento regulatorio y blindaje patrimonial para empresas de todo sector.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-users font-semibold"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Derecho Familiar y Divorcios</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Atención sensible y firme en divorcios, custodia de menores, pensiones alimenticias, juicios sucesorios, testamentos y rectificación de actas.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Juicios Civiles y Arrendamiento</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Rescisión e incumplimiento de contratos, controversias de arrendamiento, juicios reivindicatorios, usucapión y defensa de la propiedad.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Juicios Mercantiles y Cobranza</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Recuperación judicial y extrajudicial de cartera vencida, cobro de pagarés, títulos de crédito y resolución de disputas comerciales.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Juicios Laborales (Patronal y Trabajador)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Defensa institucional para patronos y representación de trabajadores en despido injustificado, conciliación, contratos colectivos y auditoría laboral.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Defensa y Litigio Penal</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Asistencia técnica integral en el Sistema Penal Acusatorio, atención inmediata en fiscalías, cauciones y representación de imputados o víctimas.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Trámites Administrativos y Amparos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Interposición de Juicios de Amparo Directo e Indirecto contra actos arbitrarios de autoridad, clausuras, multas o licencias administrativas.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="glass-card p-6 rounded-xl gold-border-glow transition-all duration-300 flex flex-col justify-between space-y-4 md:col-span-2 lg:col-span-1">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <h3 class="font-serif-display font-bold text-xl text-white">Gestión Documental y Contratos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Elaboración, revisión y negociación de convenios, contratos de mutuo, arriendos complejos y regularización de bienes inmuebles.
+            </p>
+          </div>
+          <a href="#contacto" class="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 hover:text-amber-300 pt-2">
+            <span>Consultar materia</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. POR QUÉ ELEGIRNOS (PROPUESTA DE VALOR) -->
+  <section id="ventajas" class="py-20 bg-oxford-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 text-amber-500 font-semibold text-xs uppercase tracking-widest">
+          <i class="fa-solid fa-star"></i>
+          <span>Diferenciales Competitivos</span>
+        </div>
+        <h2 class="font-serif-display text-3xl sm:text-4xl font-bold text-white">
+          Por Qué Confiar Su Asunto En Nosotros
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Nuestra metodología de trabajo prioriza la certeza jurídica, la rapidez procesal y el máximo beneficio para el cliente.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Differential 1 -->
+        <div class="p-6 rounded-xl bg-oxford-950 border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
+          <div class="text-3xl font-serif-display font-extrabold text-amber-500">01</div>
+          <h3 class="font-serif-display font-bold text-lg text-white">33 Años de Trayectoria</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Dominio profundo del criterio judicial local y federal, fruto de más de tres décadas operando ininterrumpidamente en los tribunales de la región.
+          </p>
+        </div>
+
+        <!-- Differential 2 -->
+        <div class="p-6 rounded-xl bg-oxford-950 border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
+          <div class="text-3xl font-serif-display font-extrabold text-amber-500">02</div>
+          <h3 class="font-serif-display font-bold text-lg text-white">Estrategia Preventiva</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Enfocamos el análisis en mitigar riesgos antes de que se conviertan en litigios costosos, optimizando tiempo y recursos económicos.
+          </p>
+        </div>
+
+        <!-- Differential 3 -->
+        <div class="p-6 rounded-xl bg-oxford-950 border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
+          <div class="text-3xl font-serif-display font-extrabold text-amber-500">03</div>
+          <h3 class="font-serif-display font-bold text-lg text-white">Acompañamiento Constante</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Mantenemos informado al cliente de manera clara en cada avance procesal, sin tecnicismos innecesarios ni ambigüedades.
+          </p>
+        </div>
+
+        <!-- Differential 4 -->
+        <div class="p-6 rounded-xl bg-oxford-950 border border-slate-800 space-y-4 hover:border-amber-500/40 transition-colors">
+          <div class="text-3xl font-serif-display font-extrabold text-amber-500">04</div>
+          <h3 class="font-serif-display font-bold text-lg text-white">Claridad en Honorarios</h3>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+            Propuestas económicas transparentes y convenios por escrito desde el inicio, sin cobros sorpresivos ni cuotas ocultas.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. SECCIÓN DE CONTACTO Y UBICACIÓN (2 COLUMNAS) -->
+  <section id="contacto" class="py-20 bg-oxford-950 relative border-t border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div class="inline-flex items-center gap-2 text-amber-500 font-semibold text-xs uppercase tracking-widest">
+          <i class="fa-solid fa-comments"></i>
+          <span>Atención Directa y Confidencial</span>
+        </div>
+        <h2 class="font-serif-display text-3xl sm:text-4xl font-bold text-white">
+          Agende Su Consulta Legal
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base">
+          Complete el formulario o comuníquese a través de nuestras líneas telefónicas oficiales para recibir una evaluación preliminar de su asunto.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Column: Contact Form -->
+        <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-2xl gold-border-glow">
+          <h3 class="font-serif-display text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-paper-plane text-amber-500 text-base"></i>
+            <span>Formulario de Consulta</span>
+          </h3>
+
+          <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="nombre" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Nombre Completo *</label>
+                <input type="text" id="nombre" required placeholder="Ej. Lic. Carlos Mendoza" class="w-full bg-oxford-900 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors">
+              </div>
+              <div>
+                <label for="telefono" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Teléfono de Contacto *</label>
+                <input type="tel" id="telefono" required placeholder="Ej. (646) 123-4567" class="w-full bg-oxford-900 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="correo" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico *</label>
+                <input type="email" id="correo" required placeholder="correo@ejemplo.com" class="w-full bg-oxford-900 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors">
+              </div>
+              <div>
+                <label for="asunto" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tipo de Asunto / Juicio *</label>
+                <select id="asunto" required class="w-full bg-oxford-900 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                  <option value="" disabled selected>Seleccione la materia...</option>
+                  <option value="Corporativo">Derecho Corporativo y Empresas</option>
+                  <option value="Familiar">Derecho Familiar y Divorcios</option>
+                  <option value="Civil">Juicios Civiles y Arrendamiento</option>
+                  <option value="Mercantil">Juicios Mercantiles y Cobranza</option>
+                  <option value="Laboral">Juicios Laborales</option>
+                  <option value="Penal">Defensa y Litigio Penal</option>
+                  <option value="Amparo">Trámites Administrativos y Amparos</option>
+                  <option value="Contratos">Gestión Documental y Contratos</option>
+                  <option value="Otro">Otro Asunto Legal</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="mensaje" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Resumen Breve del Caso *</label>
+              <textarea id="mensaje" rows="4" required placeholder="Describa brevemente la situación o dudas que desea consultar..." class="w-full bg-oxford-900 border border-slate-700/80 rounded-lg px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full gold-gradient-bg text-oxford-950 font-bold py-4 rounded-xl text-base transition-all transform hover:-translate-y-0.5 shadow-lg shadow-amber-900/30 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Enviar Solicitud de Consulta</span>
+            </button>
+            <p class="text-[11px] text-slate-400 text-center">
+              <i class="fa-solid fa-lock text-amber-500 mr-1"></i> Sus datos están protegidos bajo estricto secreto profesional.
+            </p>
+          </form>
+
+          <!-- Form feedback alert message -->
+          <div id="form-feedback" class="hidden mt-4 p-4 rounded-lg bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-sm text-center">
+            <i class="fa-solid fa-circle-check text-emerald-400 mr-2 text-base"></i>
+            <span>¡Gracias! Su mensaje ha sido enviado correctamente. Un abogado especialista se comunicará con usted a la brevedad.</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Phone numbers breakdown & Map -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Contact Numbers Card -->
+          <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+            <h3 class="font-serif-display text-xl font-bold text-white border-b border-slate-800 pb-4">
+              Líneas Telefónicas Directas
+            </h3>
+
+            <div class="space-y-4">
+              
+              <!-- Phone 1 -->
+              <div class="flex items-start gap-4 p-3.5 rounded-lg bg-oxford-900 border border-slate-800 hover:border-amber-500/30 transition-colors">
+                <div class="w-10 h-10 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 uppercase font-semibold">Oficina y Recepción</div>
+                  <a href="tel:+526461000001" class="text-base font-bold text-white hover:text-amber-400 transition-colors">
+                    +52 (646) 100-0001
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phone 2 -->
+              <div class="flex items-start gap-4 p-3.5 rounded-lg bg-oxford-900 border border-slate-800 hover:border-amber-500/30 transition-colors">
+                <div class="w-10 h-10 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 uppercase font-semibold">Asesoría Corporativa y Citas</div>
+                  <a href="tel:+526461000002" class="text-base font-bold text-white hover:text-amber-400 transition-colors">
+                    +52 (646) 100-0002
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phone 3 / WhatsApp -->
+              <div class="flex items-start gap-4 p-3.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 hover:border-emerald-400/60 transition-colors">
+                <div class="w-10 h-10 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="fa-brands fa-whatsapp text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-emerald-400 uppercase font-semibold">Urgencias Legales y WhatsApp</div>
+                  <a href="https://wa.me/526461000003?text=Hola,%20requiero%20asesor%C3%ADa%20legal%20de%20urgencia." target="_blank" rel="noopener noreferrer" class="text-base font-bold text-emerald-300 hover:underline">
+                    +52 (646) 100-0003
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Address & Hours -->
+            <div class="space-y-3 pt-4 border-t border-slate-800 text-sm">
+              <div class="flex items-start gap-3 text-slate-300">
+                <i class="fa-solid fa-location-dot text-amber-500 mt-1"></i>
+                <span>Dirección de prueba #123, Colonia Centro, Ensenada, Baja California.</span>
+              </div>
+              <div class="flex items-start gap-3 text-slate-300">
+                <i class="fa-solid fa-clock text-amber-500 mt-1"></i>
+                <span>Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Styled Google Maps Container -->
+          <div class="glass-card p-2 rounded-2xl border border-slate-800 overflow-hidden shadow-lg">
+            <div class="relative w-full h-56 rounded-xl overflow-hidden bg-oxford-900">
+              <!-- Interactive Google Map iframe tuned to Ensenada Centro -->
+              <iframe 
+                title="Ubicación de Asesoría Jurídica Profesional en Ensenada"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53896.79053818317!2d-116.6341275!3d31.8667431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d892842404b90b%3A0xb5b7915dfb0e2fb1!2sZona%20Centro%2C%20Ensenada%2C%20B.C.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+                class="w-full h-full border-0 filter grayscale contrast-125 opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div class="absolute bottom-3 left-3 bg-oxford-950/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-amber-500/30 text-xs font-semibold text-amber-400">
+                <i class="fa-solid fa-map-pin mr-1"></i> Ensenada, B.C., México
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer class="bg-oxford-950 text-slate-400 text-xs border-t border-slate-800/80 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="grid md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Footer Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded bg-amber-500 flex items-center justify-center text-oxford-950 font-bold">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <span class="font-serif-display font-bold text-base text-white tracking-wider">
+              ASESORÍA JURÍDICA PROFESIONAL
+            </span>
+          </div>
+          <p class="text-slate-400 leading-relaxed max-w-md">
+            Despacho legal con 33 años de trayectoria ininterrumpida en Ensenada, Baja California. Brindamos representación y consultoría legal de alta solidez para personas físicas y morales.
+          </p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="font-serif-display font-bold text-sm text-slate-200 uppercase tracking-wider">Navegación</h4>
+          <ul class="space-y-2">
+            <li><a href="#inicio" class="hover:text-amber-400 transition-colors">Inicio</a></li>
+            <li><a href="#nosotros" class="hover:text-amber-400 transition-colors">Nosotros y Filosofía</a></li>
+            <li><a href="#servicios" class="hover:text-amber-400 transition-colors">Áreas de Práctica</a></li>
+            <li><a href="#ventajas" class="hover:text-amber-400 transition-colors">Por Qué Elegirnos</a></li>
+            <li><a href="#contacto" class="hover:text-amber-400 transition-colors">Agendar Consulta</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal Disclaimer & Privacy -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="font-serif-display font-bold text-sm text-slate-200 uppercase tracking-wider">Aviso Legal</h4>
+          <p class="text-[11px] leading-relaxed text-slate-500">
+            La información contenida en este sitio web tiene carácter estrictamente informativo y no constituye asesoría o relación abogado-cliente hasta la firma del contrato respectivo.
+          </p>
+          <div class="pt-2">
+            <a href="#" onclick="alert('Aviso de Privacidad: ASESORÍA JURÍDICA PROFESIONAL protege sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.'); return false;" class="text-amber-500 hover:text-amber-400 underline">
+              Aviso de Privacidad Simplificado
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="border-t border-slate-800/60 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left text-slate-500">
+        <p>© 2026 Asesoría Jurídica Profesional. Todos los derechos reservados. 33 Años de Trayectoria Jurídica.</p>
+        <p>Ensenada, Baja California, México.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 9. COMPONENTE FLOTANTE (WHATSAPP DE URGENCIAS) -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a href="https://wa.me/526461000003?text=Hola,%20requiero%20una%20asesor%C3%ADa%20legal%20de%20urgencia." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Contactar por WhatsApp para Urgencias Legales"
+       class="relative group flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-2xl shadow-emerald-900/50 transition-all transform hover:scale-110">
+      <!-- Pulsing Ring -->
+      <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+      <i class="fa-brands fa-whatsapp text-3xl relative z-10"></i>
+      
+      <!-- Tooltip on Hover -->
+      <span class="absolute right-16 bg-oxford-900 text-slate-100 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        Urgencias Legales (WhatsApp)
+      </span>
+    </a>
+  </div>
+
+  <!-- LIGHTWEIGHT JAVASCRIPT FOR INTERACTIVITY -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-xmark');
+        }
+      });
+
+      // Close mobile menu on clicking any link
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        });
+      });
+    }
+
+    // Contact form submission simulation
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const feedback = document.getElementById('form-feedback');
+      const form = document.getElementById('contact-form');
+      
+      if (feedback) {
+        feedback.classList.remove('hidden');
+        form.reset();
+        
+        // Scroll feedback into view smoothly
+        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 8000);
+      }
+    }
+  </script>
+
+</body>
+</html>

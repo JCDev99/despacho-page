@@ -354,3 +354,27 @@ $ git status --short
 | `referencia/v0-index.html` | 46.366 B | `7fde810b36f258841eb598966b73ab06` |
 | `index.html` (Portada) | 12.592 B | `3688fb0528592ec9b88fa6b5aba9368e` |
 
+---
+
+## Sello de Gerencia (2026-10-14 12:14 PDT)
+
+- **Verificadora:** Gerencia (Hermes), con instrumento propio y control negativo. No se firma a partir del
+  autoinforme del ejecutor: agy reportó `status=ERROR` en su resumen de la corrida 16-b aunque produjo los 9
+  artefactos con `rc=0`.
+- **Estado firmado (commit `24c889c`):** este informe tenía **17.869 B** y md5
+  `bad3c70cead0864f2105d29fe26ab375`. El commit `24c889c` es el entregable tal cual lo produjo el taller; esta
+  sección se añade en un commit aparte, sin tocar ningún artefacto verificado.
+- **Comando de aceptación:**
+
+  ```bash
+  python3 /opt/mentor/scripts/verificar_web_despacho.py --repo /opt/mentor/workspace/despacho-page --check-build
+  ```
+
+  Resultado real: `RESUMEN verificar_web_despacho: 0 fallo(s) · 0 no comprobable(s)`, `rc=0`, con
+  `build.sh --check` → `[OK] sin deriva: sello, src/ e index.html son el mismo contenido.`
+- **Publicación verificada:** `main` == `24c889cd3201759a916f798be6c6a802aa4ecb52` y el sitio servido por GitHub
+  Pages devuelve los mismos md5 que el disco — portada `3688fb05…`, v1 `84cce869…`, v2 `e01a4b56…` —
+  en `https://jcdev99.github.io/despacho-page/`.
+- **Acta completa:** `/opt/mentor/state/acta-encargo-16-web-despacho-2026-10-14.md` (criterios, comandos y lo que
+  queda abierto, incluidos los datos que debe aportar el cliente).
+

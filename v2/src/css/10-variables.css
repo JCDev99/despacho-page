@@ -1,0 +1,27 @@
+:root {
+  /* Paleta Editorial Contemporánea: Crema, Tinta, Terracota */
+  --v2-cream-bg: #FBF9F5;
+  --v2-cream-surface: #F4EFEA;
+  --v2-cream-elevated: #EDE6DE;
+  
+  --v2-ink-950: #12100E;
+  --v2-ink-900: #1A1816;
+  --v2-ink-800: #2B2623;
+  --v2-ink-700: #3D3833;
+  --v2-ink-600: #575048;
+  --v2-ink-500: #756D63;
+  
+  /* Terracota calibrado para WCAG AA (>= 4.5:1) */
+  --v2-terra-dark: #9C381E;    /* en crema: ratio 6.6:1 */
+  --v2-terra-deep: #8A2E16;    /* en crema: ratio 8.0:1 */
+  --v2-terra-light: #E07A5F;   /* en tinta: ratio 6.0:1 */
+  
+  --v2-rule-hairline: #D8D0C5;
+  --v2-rule-strong: #B5ABA0;
+  
+  --v2-font-display: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", "Georgia", serif;
+  --v2-font-serif: "Georgia", "Times New Roman", serif;
+  --v2-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --v2-container-max: 1200px;
+}

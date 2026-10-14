@@ -1,0 +1,371 @@
+{
+  "variante": "v2",
+  "url": "http://127.0.0.1:59059/v2/index.html",
+  "ts": "2026-10-14T19:08:30.023Z",
+  "desbordes": {
+    "1440px": 0,
+    "390px": 0,
+    "360px": 0
+  },
+  "desbordesReales": {
+    "1440px": 0,
+    "390px": 0,
+    "360px": 0
+  },
+  "desbordesPorEstado": {
+    "reposo": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "menu-movil": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "hover": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "foco": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    }
+  },
+  "estadosMedidos": [
+    "reposo",
+    "menu-movil",
+    "hover",
+    "foco"
+  ],
+  "erroresConsola": [],
+  "peticionesExternas": [],
+  "contraste": {
+    "totalMuestras": 86,
+    "peorRatio": 6.44,
+    "peorPareja": {
+      "sel": "h3",
+      "texto": "Líneas de Atención",
+      "ratio": 6.44,
+      "req": 3,
+      "isLarge": true,
+      "pass": true,
+      "fg": "rgb(224,122,95)",
+      "bg": "rgb(18,16,14)"
+    },
+    "todosCumplen": true,
+    "muestrasDetalle": [
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Inicio",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Práctica",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Filosofía",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Titulares",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Método",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a.editorial-nav-link",
+        "texto": "Contacto",
+        "ratio": 14.22,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "a",
+        "texto": "00 / Inicio",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "a",
+        "texto": "01 / Áreas de Práctica",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "a",
+        "texto": "02 / Filosofía y Valores",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "a",
+        "texto": "03 / Abogados Titulares",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "a",
+        "texto": "04 / Método de Trabajo",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "a",
+        "texto": "05 / Contacto y Horarios",
+        "ratio": 15.5,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(26,24,22)",
+        "bg": "rgb(244,239,234)"
+      },
+      {
+        "sel": "h1.hero-v2-headline",
+        "texto": "Defensa técnica y solidez procesal ",
+        "ratio": 18.05,
+        "req": 3,
+        "isLarge": true,
+        "pass": true,
+        "fg": "rgb(18,16,14)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "p",
+        "texto": "Representación jurídica para empres",
+        "ratio": 11.02,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(61,56,51)",
+        "bg": "rgb(251,249,245)"
+      },
+      {
+        "sel": "p.editorial-box-lead",
+        "texto": "«La solidez técnica no admite atajo",
+        "ratio": 13.09,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(43,38,35)",
+        "bg": "rgb(244,239,234)"
+      }
+    ]
+  },
+  "objetivoTactil": {
+    "totalControles": 22,
+    "controlesMenores24": 0,
+    "minAncho": 44,
+    "minAlto": 44,
+    "cumple": true,
+    "detalles": [
+      {
+        "tag": "a",
+        "texto": "CAS'LEY\nASESORÍA JURÍDICA",
+        "w": 273,
+        "h": 76,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "INICIO",
+        "w": 55,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "PRÁCTICA",
+        "w": 86,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "FILOSOFÍA",
+        "w": 92,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "TITULARES",
+        "w": 95,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "MÉTODO",
+        "w": 74,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "CONTACTO",
+        "w": 93,
+        "h": 61,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "CONSULTA DIRECTA",
+        "w": 209,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "CONTACTO POR WHATSAPP",
+        "w": 337,
+        "h": 50,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "LLAMAR A DESPACHO",
+        "w": 337,
+        "h": 52,
+        "pass": true
+      }
+    ]
+  },
+  "focoTeclado": {
+    "totalInteractivos": 22,
+    "conFocoVisible": 22,
+    "sinFocoVisible": 0,
+    "trampasDetectadas": 0,
+    "cumple": true
+  },
+  "veredicto": "OK"
+}

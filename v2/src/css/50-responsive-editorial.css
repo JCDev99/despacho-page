@@ -1,0 +1,85 @@
+/* Reglas responsivas calibradas para Variante Editorial v2 */
+
+@media (max-width: 1024px) {
+  .hero-v2-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .asym-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .asym-sidebar {
+    position: static;
+  }
+  .editorial-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .editorial-nav, .editorial-btn-action {
+    display: none;
+  }
+  .editorial-burger {
+    display: inline-flex;
+  }
+  .editorial-lawyer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .editorial-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .asym-section {
+    padding: 3.5rem 0;
+  }
+  .hero-v2 {
+    padding: 3rem 0;
+  }
+  .hero-v2-headline {
+    font-size: 2.2rem;
+  }
+  .hero-v2-editorial-box {
+    padding: 1.5rem 1.25rem;
+  }
+  .editorial-practice-item {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+  .editorial-timeline-item {
+    grid-template-columns: 45px 1fr;
+    gap: 1rem;
+  }
+  .masthead-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+/* Blindaje extra para 390px y 360px */
+@media (max-width: 400px) {
+  .editorial-logo-title {
+    font-size: 1.75rem;
+  }
+  .editorial-practice-title {
+    font-size: 1.15rem;
+  }
+  .editorial-lawyer-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .editorial-quote-text {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CAS'LEY - Asesoría Jurídica Profesional en Ensenada, B.C. Trayectoria editorial y práctica jurídica rigurosa desde 1993.">
+  <title>CAS'LEY | Asesoría Jurídica Profesional — Ensenada, B.C.</title>
+  <style>
+:root {
+  /* Paleta Editorial Contemporánea: Crema, Tinta, Terracota */
+  --v2-cream-bg: #FBF9F5;
+  --v2-cream-surface: #F4EFEA;
+  --v2-cream-elevated: #EDE6DE;
+  
+  --v2-ink-950: #12100E;
+  --v2-ink-900: #1A1816;
+  --v2-ink-800: #2B2623;
+  --v2-ink-700: #3D3833;
+  --v2-ink-600: #575048;
+  --v2-ink-500: #756D63;
+  
+  /* Terracota calibrado para WCAG AA (>= 4.5:1) */
+  --v2-terra-dark: #9C381E;    /* en crema: ratio 6.6:1 */
+  --v2-terra-deep: #8A2E16;    /* en crema: ratio 8.0:1 */
+  --v2-terra-light: #E07A5F;   /* en tinta: ratio 6.0:1 */
+  
+  --v2-rule-hairline: #D8D0C5;
+  --v2-rule-strong: #B5ABA0;
+  
+  --v2-font-display: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", "Georgia", serif;
+  --v2-font-serif: "Georgia", "Times New Roman", serif;
+  --v2-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --v2-container-max: 1200px;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: var(--v2-font-sans);
+  background-color: var(--v2-cream-bg);
+  color: var(--v2-ink-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Foco visible editorial de alto contraste */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--v2-terra-dark);
+  outline-offset: 3px;
+}
+
+.on-ink a:focus-visible,
+.on-ink button:focus-visible {
+  outline: 3px solid var(--v2-terra-light);
+}
+
+/* Requisito táctil mínimo WCAG (>= 24x24 px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reglas finas de separación */
+.hairline-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--v2-rule-hairline);
+  margin: 0;
+  width: 100%;
+}
+
+/* Utilidades */
+.text-terracotta { color: var(--v2-terra-dark); }
+.text-ink-muted { color: var(--v2-ink-600); }
+
+h1, h2, h3, h4, p, span, a, li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.v2-container {
+  width: 100%;
+  max-width: var(--v2-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Cabecera Editorial Masthead */
+.editorial-masthead {
+  border-bottom: 2px solid var(--v2-ink-900);
+  background-color: var(--v2-cream-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.masthead-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--v2-ink-600);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--v2-rule-hairline);
+}
+
+.masthead-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.editorial-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-logo-title {
+  font-family: var(--v2-font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--v2-ink-950);
+  line-height: 1;
+}
+
+.editorial-logo-sub {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--v2-terra-dark);
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.editorial-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.editorial-nav-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--v2-ink-800);
+  padding: 0.5rem 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.editorial-nav-link:hover {
+  color: var(--v2-terra-dark);
+}
+
+.editorial-btn-action {
+  background-color: var(--v2-terra-dark);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.editorial-btn-action:hover {
+  background-color: var(--v2-terra-deep);
+}
+
+.editorial-burger {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  background-color: transparent;
+  color: var(--v2-ink-900);
+  border: 1px solid var(--v2-ink-900);
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.editorial-mobile-menu {
+  display: none;
+  background-color: var(--v2-cream-surface);
+  border-bottom: 2px solid var(--v2-ink-900);
+  padding: 1.5rem 2rem;
+}
+
+.editorial-mobile-menu.open {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.editorial-mobile-menu a {
+  font-family: var(--v2-font-display);
+  font-size: 1.25rem;
+  color: var(--v2-ink-900);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--v2-rule-hairline);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Layout Asimétrico en Dos Columnas */
+.asym-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--v2-rule-hairline);
+}
+
+.asym-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.asym-sidebar {
+  position: sticky;
+  top: 140px;
+}
+
+.asym-sidebar-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--v2-terra-dark);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.asym-sidebar-title {
+  font-family: var(--v2-font-display);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  color: var(--v2-ink-950);
+  line-height: 1.15;
+  margin: 0 0 1.25rem;
+}
+
+.asym-sidebar-desc {
+  font-size: 1rem;
+  color: var(--v2-ink-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.asym-content {
+  width: 100%;
+}
+/* Héroe Asimétrico v2 */
+.hero-v2 {
+  padding: 5rem 0 4.5rem;
+  border-bottom: 2px solid var(--v2-ink-900);
+}
+
+.hero-v2-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 3.5rem;
+  align-items: end;
+}
+
+.hero-issue-stamp {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--v2-terra-dark);
+  border-bottom: 1px solid var(--v2-terra-dark);
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-v2-headline {
+  font-family: var(--v2-font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--v2-ink-950);
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-v2-editorial-box {
+  background-color: var(--v2-cream-surface);
+  border: 1px solid var(--v2-rule-hairline);
+  border-left: 3px solid var(--v2-terra-dark);
+  padding: 2.25rem 2rem;
+}
+
+.editorial-box-lead {
+  font-family: var(--v2-font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--v2-ink-800);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.hero-v2-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-editorial-primary {
+  background-color: var(--v2-ink-900);
+  color: var(--v2-cream-bg);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1.5rem;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-editorial-primary:hover {
+  background-color: var(--v2-terra-dark);
+}
+
+.btn-editorial-outline {
+  background-color: transparent;
+  color: var(--v2-ink-900);
+  border: 1px solid var(--v2-ink-900);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1.5rem;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.btn-editorial-outline:hover {
+  background-color: var(--v2-ink-900);
+  color: var(--v2-cream-bg);
+}
+
+/* Lista Editorial de Áreas (Reglas finas y números grandes) */
+.editorial-practice-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-practice-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--v2-rule-hairline);
+  align-items: baseline;
+  transition: background-color 0.2s ease;
+}
+
+.editorial-practice-item:first-child {
+  border-top: 1px solid var(--v2-rule-hairline);
+}
+
+.editorial-practice-num {
+  font-family: var(--v2-font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--v2-terra-dark);
+  line-height: 1;
+}
+
+.editorial-practice-title {
+  font-family: var(--v2-font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--v2-ink-950);
+  margin: 0 0 0.4rem;
+  line-height: 1.25;
+}
+
+.editorial-practice-desc {
+  font-size: 0.9375rem;
+  color: var(--v2-ink-600);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Filosofía y Valores Editorial */
+.editorial-quote-block {
+  border-left: 2px solid var(--v2-terra-dark);
+  padding-left: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.editorial-quote-text {
+  font-family: var(--v2-font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--v2-ink-900);
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+}
+
+.editorial-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 3rem;
+}
+
+.editorial-feature-item {
+  border-top: 1px solid var(--v2-rule-hairline);
+  padding-top: 1.25rem;
+}
+
+.editorial-feature-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--v2-terra-dark);
+  margin-bottom: 0.4rem;
+}
+
+.editorial-feature-title {
+  font-family: var(--v2-font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--v2-ink-950);
+  margin: 0 0 0.5rem;
+}
+
+.editorial-feature-desc {
+  font-size: 0.875rem;
+  color: var(--v2-ink-600);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Perfiles de Abogados Editorial */
+.editorial-lawyer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.editorial-lawyer-card {
+  background-color: var(--v2-cream-surface);
+  border: 1px solid var(--v2-rule-hairline);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.editorial-lawyer-tag {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--v2-terra-dark);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.editorial-lawyer-name {
+  font-family: var(--v2-font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--v2-ink-950);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.editorial-lawyer-bio {
+  font-size: 0.9375rem;
+  color: var(--v2-ink-700);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.editorial-lawyer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-top: 1px solid var(--v2-rule-hairline);
+  padding-top: 1.5rem;
+}
+
+.btn-wa-editorial {
+  background-color: #075E54;
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-tel-editorial {
+  background-color: transparent;
+  color: var(--v2-ink-900);
+  border: 1px solid var(--v2-ink-900);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Proceso Editorial */
+.editorial-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-timeline-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--v2-rule-hairline);
+}
+
+.editorial-timeline-num {
+  font-family: var(--v2-font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--v2-ink-500);
+  line-height: 1;
+}
+
+.editorial-timeline-title {
+  font-family: var(--v2-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--v2-ink-950);
+  margin: 0 0 0.5rem;
+}
+
+.editorial-timeline-desc {
+  font-size: 0.9375rem;
+  color: var(--v2-ink-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Contacto y Colofón */
+.editorial-contact-section {
+  background-color: var(--v2-ink-950);
+  color: var(--v2-cream-bg);
+  padding: 5rem 0;
+}
+
+.editorial-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.editorial-contact-col h3 {
+  font-family: var(--v2-font-display);
+  font-size: 1.35rem;
+  color: var(--v2-terra-light);
+  margin: 0 0 1.25rem;
+}
+
+.editorial-contact-col p {
+  color: #D8D0C5;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.editorial-colophon {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.editorial-disclaimer-box {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: #CBD5E1;
+}
+/* Reglas responsivas calibradas para Variante Editorial v2 */
+
+@media (max-width: 1024px) {
+  .hero-v2-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .asym-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .asym-sidebar {
+    position: static;
+  }
+  .editorial-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .editorial-nav, .editorial-btn-action {
+    display: none;
+  }
+  .editorial-burger {
+    display: inline-flex;
+  }
+  .editorial-lawyer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .editorial-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .v2-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .asym-section {
+    padding: 3.5rem 0;
+  }
+  .hero-v2 {
+    padding: 3rem 0;
+  }
+  .hero-v2-headline {
+    font-size: 2.2rem;
+  }
+  .hero-v2-editorial-box {
+    padding: 1.5rem 1.25rem;
+  }
+  .editorial-practice-item {
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+  .editorial-timeline-item {
+    grid-template-columns: 45px 1fr;
+    gap: 1rem;
+  }
+  .masthead-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+/* Blindaje extra para 390px y 360px */
+@media (max-width: 400px) {
+  .editorial-logo-title {
+    font-size: 1.75rem;
+  }
+  .editorial-practice-title {
+    font-size: 1.15rem;
+  }
+  .editorial-lawyer-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .editorial-quote-text {
+    font-size: 1.3rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- 1. MASTHEAD EDITORIAL -->
+  <header class="editorial-masthead">
+    <div class="v2-container">
+      <div class="masthead-meta-bar">
+        <span>Ensenada, Baja California · Zona Centro</span>
+        <span>33+ años de trayectoria en Ensenada</span>
+        <span>Atención directa y personalizada</span>
+      </div>
+
+      <div class="masthead-main">
+        <a href="#inicio" class="editorial-logo touch-target" aria-label="CAS'LEY - Asesoría Jurídica Profesional">
+          <span class="editorial-logo-title">CAS'LEY</span>
+          <span class="editorial-logo-sub">Asesoría Jurídica Profesional</span>
+        </a>
+
+        <!-- Navegación editorial -->
+        <nav class="editorial-nav" aria-label="Navegación principal">
+          <a href="#inicio" class="editorial-nav-link">Inicio</a>
+          <a href="#areas" class="editorial-nav-link">Práctica</a>
+          <a href="#filosofia" class="editorial-nav-link">Filosofía</a>
+          <a href="#titulares" class="editorial-nav-link">Titulares</a>
+          <a href="#metodo" class="editorial-nav-link">Método</a>
+          <a href="#contacto" class="editorial-nav-link">Contacto</a>
+        </nav>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <a href="#contacto" class="editorial-btn-action">
+            <span>Consulta Directa</span>
+          </a>
+          <button id="v2BurgerBtn" class="editorial-burger touch-target" aria-expanded="false" aria-controls="v2BurgerMenu" aria-label="Abrir menú de navegación">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú móvil editorial -->
+    <nav id="v2BurgerMenu" class="editorial-mobile-menu" aria-label="Menú editorial móvil">
+      <a href="#inicio">00 / Inicio</a>
+      <a href="#areas">01 / Áreas de Práctica</a>
+      <a href="#filosofia">02 / Filosofía y Valores</a>
+      <a href="#titulares">03 / Abogados Titulares</a>
+      <a href="#metodo">04 / Método de Trabajo</a>
+      <a href="#contacto">05 / Contacto y Horarios</a>
+    </nav>
+  </header>
+  <!-- 2. HÉROE ASIMÉTRICO EDITORIAL -->
+  <section id="inicio" class="hero-v2">
+    <div class="v2-container hero-v2-grid">
+      <div>
+        <span class="hero-issue-stamp">Vol. 33 · Litigio y Consultoría Estratégica</span>
+        <h1 class="hero-v2-headline">
+          Defensa técnica y solidez procesal en Ensenada.
+        </h1>
+        <p style="font-size: 1.125rem; color: var(--v2-ink-700); line-height: 1.6; margin: 0; max-width: 580px;">
+          Representación jurídica para empresas y particulares. Tres décadas fundamentadas en el rigor normativo, el criterio ético y la transparencia sin artificios.
+        </p>
+      </div>
+
+      <div class="hero-v2-editorial-box">
+        <p class="editorial-box-lead">
+          «La solidez técnica no admite atajos: cada caso exige fundamentación estricta y trato directo.»
+        </p>
+        <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--v2-terra-dark); font-weight: 700; margin-bottom: 1.5rem;">
+          33+ Años de Trayectoria Continua
+        </div>
+        <div class="hero-v2-actions">
+          <a href="https://wa.me/526161070301" class="btn-editorial-primary" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <span>Contacto por WhatsApp</span>
+          </a>
+          <a href="tel:+526161070301" class="btn-editorial-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>Llamar a Despacho</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 3. ÁREAS DE PRÁCTICA (ÍNDICE EDITORIAL 01-08) -->
+  <section id="areas" class="asym-section">
+    <div class="v2-container asym-grid">
+      <aside class="asym-sidebar">
+        <span class="asym-sidebar-label">Sección 01 · Especialidades</span>
+        <h2 class="asym-sidebar-title">Áreas de Práctica</h2>
+        <p class="asym-sidebar-desc">
+          Ocho ramas fundamentales del derecho abordadas con rigor sustantivo, estrategia procesal y conocimiento local de los tribunales de Baja California.
+        </p>
+      </aside>
+
+      <div class="asym-content">
+        <div class="editorial-practice-list">
+          <!-- 1. Derecho Corporativo y Empresas -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">01</div>
+            <div>
+              <h3 class="editorial-practice-title">Derecho Corporativo y Empresas</h3>
+              <p class="editorial-practice-desc">Asesoría integral en constitución, contratos comerciales, gobierno corporativo y cumplimiento normativo empresarial.</p>
+            </div>
+          </article>
+
+          <!-- 2. Derecho Familiar y Divorcios -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">02</div>
+            <div>
+              <h3 class="editorial-practice-title">Derecho Familiar y Divorcios</h3>
+              <p class="editorial-practice-desc">Resolución de controversias familiares, divorcios necesarios y voluntarios, custodia, patria potestad y pensiones alimenticias.</p>
+            </div>
+          </article>
+
+          <!-- 3. Juicios Civiles y Arrendamiento -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">03</div>
+            <div>
+              <h3 class="editorial-practice-title">Juicios Civiles y Arrendamiento</h3>
+              <p class="editorial-practice-desc">Litigio civil especializado, controversias de propiedad, contratos y juicios de arrendamiento inmobiliario.</p>
+            </div>
+          </article>
+
+          <!-- 4. Juicios Mercantiles y Cobranza -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">04</div>
+            <div>
+              <h3 class="editorial-practice-title">Juicios Mercantiles y Cobranza</h3>
+              <p class="editorial-practice-desc">Recuperación judicial y extrajudicial de cartera vencida, cobro de pagarés, títulos de crédito y disputas comerciales.</p>
+            </div>
+          </article>
+
+          <!-- 5. Juicios Laborales (patronal y trabajador) -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">05</div>
+            <div>
+              <h3 class="editorial-practice-title">Juicios Laborales (patronal y trabajador)</h3>
+              <p class="editorial-practice-desc">Defensa y representación estratégica ante tribunales laborales tanto para sector empleador como para trabajadores.</p>
+            </div>
+          </article>
+
+          <!-- 6. Defensa y Litigio Penal -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">06</div>
+            <div>
+              <h3 class="editorial-practice-title">Defensa y Litigio Penal</h3>
+              <p class="editorial-practice-desc">Asistencia técnica integral en el Sistema Penal Acusatorio, atención inmediata en fiscalías, cauciones y representación de imputados o víctimas.</p>
+            </div>
+          </article>
+
+          <!-- 7. Trámites Administrativos y Amparos -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">07</div>
+            <div>
+              <h3 class="editorial-practice-title">Trámites Administrativos y Amparos</h3>
+              <p class="editorial-practice-desc">Juicios de amparo directo e indirecto contra actos de autoridad y gestión ante dependencias gubernamentales.</p>
+            </div>
+          </article>
+
+          <!-- 8. Gestión Documental y Contratos -->
+          <article class="editorial-practice-item">
+            <div class="editorial-practice-num">08</div>
+            <div>
+              <h3 class="editorial-practice-title">Gestión Documental y Contratos</h3>
+              <p class="editorial-practice-desc">Elaboración, revisión y blindaje legal de contratos privados, convenios y dictaminación documental preventiva.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 4. FILOSOFÍA, CONFIANZA Y VALORES ÉTICOS -->
+  <section id="filosofia" class="asym-section" style="background-color: var(--v2-cream-surface);">
+    <div class="v2-container asym-grid">
+      <aside class="asym-sidebar">
+        <span class="asym-sidebar-label">Sección 02 · Principios</span>
+        <h2 class="asym-sidebar-title">Criterio Ético y Confianza</h2>
+        <p class="asym-sidebar-desc">
+          Un ejercicio del derecho basado en la transparencia desde el primer diagnóstico, claridad contractual y lealtad con el cliente.
+        </p>
+      </aside>
+
+      <div class="asym-content">
+        <div class="editorial-quote-block">
+          <p class="editorial-quote-text">
+            «La confianza jurídica no se presume: se demuestra con diagnósticos realistas, honorarios transparentes y presencia constante.»
+          </p>
+          <span style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--v2-terra-dark); font-weight: 700;">
+            Compromiso CAS'LEY · Ensenada, B.C.
+          </span>
+        </div>
+
+        <h3 style="font-family: var(--v2-font-display); font-size: 1.4rem; color: var(--v2-ink-950); margin: 0 0 1.5rem;">
+          Pilares de Nuestra Práctica
+        </h3>
+
+        <!-- 4 Razones de confianza -->
+        <div class="editorial-grid-2" style="margin-bottom: 3.5rem;">
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Razón 01</div>
+            <h4 class="editorial-feature-title">33 años de trayectoria</h4>
+            <p class="editorial-feature-desc">Conocimiento directo de la judicatura en Ensenada y práctica consolidada a lo largo de más de tres décadas.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Razón 02</div>
+            <h4 class="editorial-feature-title">Estrategia preventiva</h4>
+            <p class="editorial-feature-desc">Blindaje legal diseñado para anticipar riesgos jurídicos y prevenir contingencias procesales gravosas.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Razón 03</div>
+            <h4 class="editorial-feature-title">Acompañamiento constante</h4>
+            <p class="editorial-feature-desc">Información periódica y oportuna sobre el estado que guardan sus procedimientos judiciales y trámites.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Razón 04</div>
+            <h4 class="editorial-feature-title">Claridad en honorarios</h4>
+            <p class="editorial-feature-desc">Presupuestos por escrito, desglosados y convenidos con exactitud antes de iniciar cualquier actuación.</p>
+          </div>
+        </div>
+
+        <h3 style="font-family: var(--v2-font-display); font-size: 1.4rem; color: var(--v2-ink-950); margin: 0 0 1.5rem;">
+          Valores Deontológicos
+        </h3>
+
+        <!-- 4 Valores éticos -->
+        <div class="editorial-grid-2">
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Valor 01</div>
+            <h4 class="editorial-feature-title">Honestidad</h4>
+            <p class="editorial-feature-desc">Opinión jurídica realista sobre la viabilidad de su asunto, sin promesas vacías ni expectativas infundadas.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Valor 02</div>
+            <h4 class="editorial-feature-title">Rigor técnico</h4>
+            <p class="editorial-feature-desc">Argumentación jurídica estructurada y sustanciada en la doctrina legal, precedentes y legislación vigente.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Valor 03</div>
+            <h4 class="editorial-feature-title">Trato directo</h4>
+            <p class="editorial-feature-desc">Atención y seguimiento presencial a cargo de los abogados titulares del despacho.</p>
+          </div>
+
+          <div class="editorial-feature-item">
+            <div class="editorial-feature-num">Valor 04</div>
+            <h4 class="editorial-feature-title">Compromiso ético</h4>
+            <p class="editorial-feature-desc">Protección estricta del secreto profesional, confidencialidad documental y lealtad procesal plena.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 5. ABOGADOS TITULARES EDITORIAL -->
+  <section id="titulares" class="asym-section">
+    <div class="v2-container asym-grid">
+      <aside class="asym-sidebar">
+        <span class="asym-sidebar-label">Sección 03 · Dirección</span>
+        <h2 class="asym-sidebar-title">Abogados Titulares</h2>
+        <p class="asym-sidebar-desc">
+          Liderazgo jurídico colegiado con ejercicio profesional ininterrumpido en el foro judicial de Ensenada, Baja California.
+        </p>
+      </aside>
+
+      <div class="asym-content">
+        <div class="editorial-lawyer-grid">
+          <!-- Lic. Hilda Leyva -->
+          <article class="editorial-lawyer-card">
+            <div>
+              <div class="editorial-lawyer-tag">Abogada Titular · Asesoría Legal</div>
+              <h3 class="editorial-lawyer-name">Lic. Hilda Leyva</h3>
+            </div>
+            <div class="editorial-lawyer-links">
+              <a href="https://wa.me/526161070301" class="btn-wa-editorial" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                <span>WhatsApp: +52 616 107 0301</span>
+              </a>
+              <a href="tel:+526161070301" class="btn-tel-editorial">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>Llamar: +52 616 107 0301</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Lic. Juan Castillo -->
+          <article class="editorial-lawyer-card">
+            <div>
+              <div class="editorial-lawyer-tag">Abogado Titular · Asesoría Legal</div>
+              <h3 class="editorial-lawyer-name">Lic. Juan Castillo</h3>
+            </div>
+            <div class="editorial-lawyer-links">
+              <a href="https://wa.me/526161070312" class="btn-wa-editorial" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+                <span>WhatsApp: +52 616 107 0312</span>
+              </a>
+              <a href="tel:+526161070312" class="btn-tel-editorial">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>Llamar: +52 616 107 0312</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 6. MÉTODO DE TRABAJO / EXPECTATIVA DEL PRIMER CONTACTO -->
+  <section id="metodo" class="asym-section">
+    <div class="v2-container asym-grid">
+      <aside class="asym-sidebar">
+        <span class="asym-sidebar-label">Sección 04 · Procedimiento</span>
+        <h2 class="asym-sidebar-title">Cómo Trabajamos</h2>
+        <p class="asym-sidebar-desc">
+          Protocolo secuencial de evaluación jurídica, formalización y seguimiento para cada asunto encomendado.
+        </p>
+      </aside>
+
+      <div class="asym-content">
+        <div class="editorial-timeline">
+          <!-- Paso 01 -->
+          <div class="editorial-timeline-item">
+            <div class="editorial-timeline-num">01</div>
+            <div>
+              <h3 class="editorial-timeline-title">Primer Contacto y Recepción</h3>
+              <p class="editorial-timeline-desc">
+                Comunicación inicial vía WhatsApp o llamada telefónica. Agendamos su cita y escuchamos con atención la narración de los hechos y pretensiones legales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 02 -->
+          <div class="editorial-timeline-item">
+            <div class="editorial-timeline-num">02</div>
+            <div>
+              <h3 class="editorial-timeline-title">Diagnóstico Jurídico y Documental</h3>
+              <p class="editorial-timeline-desc">
+                Estudio objetivo de los antecedentes, contratos o actuaciones existentes. Determinamos la viabilidad procesal real sin generar expectativas ficticias.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 03 -->
+          <div class="editorial-timeline-item">
+            <div class="editorial-timeline-num">03</div>
+            <div>
+              <h3 class="editorial-timeline-title">Propuesta de Honorarios y Convenio</h3>
+              <p class="editorial-timeline-desc">
+                Presentación de un convenio claro de prestación de servicios profesionales, estipulando etapas procesales, alcance y costos determinados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 04 -->
+          <div class="editorial-timeline-item">
+            <div class="editorial-timeline-num">04</div>
+            <div>
+              <h3 class="editorial-timeline-title">Intervención Diligente y Rendición de Cuentas</h3>
+              <p class="editorial-timeline-desc">
+                Radicación de demandas, contestaciones o trámites administrativos con notificación continua y transparente al cliente sobre los acuerdos judiciales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 7. CONTACTO, SEDE Y HORARIOS EDITORIAL -->
+  <section id="contacto" class="editorial-contact-section on-ink">
+    <div class="v2-container">
+      <div style="margin-bottom: 3.5rem;">
+        <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--v2-terra-light); display: block; margin-bottom: 0.75rem;">
+          Sección 05 · Comunicación
+        </span>
+        <h2 style="font-family: var(--v2-font-display); font-size: clamp(2rem, 3.5vw, 2.75rem); color: #FFFFFF; margin: 0 0 1rem; line-height: 1.15;">
+          Directorio de Contacto Inmediato
+        </h2>
+        <p style="color: #D8D0C5; font-size: 1.0625rem; max-width: 650px; margin: 0;">
+          Comuníquese directamente con nuestros abogados titulares para programar su cita presencial en nuestras oficinas de Ensenada, B.C.
+        </p>
+      </div>
+
+      <div class="editorial-contact-grid">
+        <!-- Columna 1: Abogados Titulares -->
+        <div class="editorial-contact-col">
+          <h3>Líneas de Atención</h3>
+          <p><strong>Lic. Hilda Leyva</strong></p>
+          <p><a href="tel:+526161070301" style="color: var(--v2-terra-light);" class="touch-target">+52 (616) 107-0301</a></p>
+          <p style="margin-top: 1.25rem;"><strong>Lic. Juan Castillo</strong></p>
+          <p><a href="tel:+526161070312" style="color: var(--v2-terra-light);" class="touch-target">+52 (616) 107-0312</a></p>
+        </div>
+
+        <!-- Columna 2: Ubicación -->
+        <div class="editorial-contact-col">
+          <h3>Sede Profesional</h3>
+          <p><strong>Zona Centro</strong></p>
+          <p>Ensenada, Baja California, México</p>
+          <p style="margin-top: 1.25rem; font-size: 0.8125rem; color: #CBD5E1;">
+            Oficinas jurídicas con atención presencial previa cita confirmada.
+          </p>
+        </div>
+
+        <!-- Columna 3: Horarios -->
+        <div class="editorial-contact-col">
+          <h3>Horario de Despacho</h3>
+          <p><strong>Lunes a Viernes:</strong> 9:00 – 18:00 hrs</p>
+          <p style="margin-top: 0.75rem;"><strong>Sábados:</strong> 9:00 – 14:00 hrs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 8. COLOFÓN Y AVISO LEGAL EDITORIAL -->
+  <footer style="background-color: var(--v2-ink-950); color: #94A3B8; padding: 2.5rem 0 3rem; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 0.875rem;">
+    <div class="v2-container editorial-colophon">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span style="font-family: var(--v2-font-display); font-size: 1.5rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.05em;">CAS'LEY</span>
+          <span style="display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--v2-terra-light); margin-top: 0.25rem;">
+            Asesoría Jurídica Profesional · Desde 1993
+          </span>
+        </div>
+        <nav style="display: flex; flex-wrap: wrap; gap: 1.5rem;" aria-label="Navegación pie">
+          <a href="#inicio" style="color: #E2E8F0;" class="touch-target">Inicio</a>
+          <a href="#areas" style="color: #E2E8F0;" class="touch-target">Práctica</a>
+          <a href="#filosofia" style="color: #E2E8F0;" class="touch-target">Filosofía</a>
+          <a href="#titulares" style="color: #E2E8F0;" class="touch-target">Titulares</a>
+          <a href="#metodo" style="color: #E2E8F0;" class="touch-target">Método</a>
+          <a href="#contacto" style="color: #E2E8F0;" class="touch-target">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="editorial-disclaimer-box">
+        <strong>Aviso Legal Importante:</strong> El contenido de esta publicación digital se difunde exclusivamente con propósitos informativos generales sobre los servicios del despacho CAS'LEY en Ensenada, B.C. En ninguna circunstancia debe considerarse asesoría legal vinculante para un litigio o situación particular, ni configura por sí sola una relación formal abogado-cliente. Para la valoración técnico-jurídica de un caso concreto se requiere consulta profesional directa con los abogados titulares.
+      </div>
+
+      <div style="text-align: center; font-size: 0.8125rem; color: #64748B; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+        &copy; 2026 CAS'LEY — Asesoría Jurídica Profesional. Zona Centro, Ensenada, Baja California, México.
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Control de navegación móvil editorial v2
+    (function initV2Burger() {
+      var burger = document.getElementById('v2BurgerBtn');
+      var menu = document.getElementById('v2BurgerMenu');
+      if (!burger || !menu) return;
+
+      burger.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.focus();
+        }
+      });
+
+      var links = menu.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          menu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      }
+    })();
+    // Interacciones y navegación accesible editorial v2
+    (function initEditorialInteractions() {
+      var anchorLinks = document.querySelectorAll('a[href^="#"]');
+      for (var i = 0; i < anchorLinks.length; i++) {
+        anchorLinks[i].addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            var targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              targetEl.setAttribute('tabindex', '-1');
+              targetEl.focus();
+            }
+          }
+        });
+      }
+      console.log('CAS\'LEY v2 (Editorial Contemporánea) inicializada sin dependencias externas.');
+    })();
+  </script>
+</body>
+</html>

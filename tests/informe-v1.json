@@ -1,0 +1,371 @@
+{
+  "variante": "v1",
+  "url": "http://127.0.0.1:59059/v1/index.html",
+  "ts": "2026-10-14T19:08:24.643Z",
+  "desbordes": {
+    "1440px": 0,
+    "390px": 0,
+    "360px": 0
+  },
+  "desbordesReales": {
+    "1440px": 0,
+    "390px": 0,
+    "360px": 0
+  },
+  "desbordesPorEstado": {
+    "reposo": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "menu-movil": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "hover": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    },
+    "foco": {
+      "1440px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "culpables": []
+      },
+      "390px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "culpables": []
+      },
+      "360px": {
+        "clasico": 0,
+        "real": 0,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "culpables": []
+      }
+    }
+  },
+  "estadosMedidos": [
+    "reposo",
+    "menu-movil",
+    "hover",
+    "foco"
+  ],
+  "erroresConsola": [],
+  "peticionesExternas": [],
+  "contraste": {
+    "totalMuestras": 86,
+    "peorRatio": 6.79,
+    "peorPareja": {
+      "sel": "p.section-desc",
+      "texto": "Más de tres décadas defendiendo los",
+      "ratio": 6.79,
+      "req": 4.5,
+      "isLarge": false,
+      "pass": true,
+      "fg": "rgb(148,163,184)",
+      "bg": "rgb(11,27,43)"
+    },
+    "todosCumplen": true,
+    "muestrasDetalle": [
+      {
+        "sel": "a.nav-link",
+        "texto": "Inicio",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
+        "texto": "Áreas de Práctica",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
+        "texto": "Por Qué Confiar",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
+        "texto": "Abogados",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
+        "texto": "Cómo Trabajamos",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
+        "texto": "Contacto",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Inicio",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Áreas de Práctica",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Por Qué Confiar",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Abogados",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Cómo Trabajamos",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
+        "texto": "Contacto y Horarios",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "h1.hero-title",
+        "texto": "Asesoría Jurídica Profesional con S",
+        "ratio": 17.41,
+        "req": 3,
+        "isLarge": true,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "p.hero-subtitle",
+        "texto": "Representación y consultoría legal ",
+        "ratio": 11.73,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(203,213,225)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "h2.section-title",
+        "texto": "Áreas de Práctica Jurídica",
+        "ratio": 17.06,
+        "req": 3,
+        "isLarge": true,
+        "pass": true,
+        "fg": "rgb(15,23,42)",
+        "bg": "rgb(248,250,252)"
+      }
+    ]
+  },
+  "objetivoTactil": {
+    "totalControles": 23,
+    "controlesMenores24": 0,
+    "minAncho": 37,
+    "minAlto": 28,
+    "cumple": true,
+    "detalles": [
+      {
+        "tag": "a",
+        "texto": "Lic. Hilda Leyva: +52 616",
+        "w": 253,
+        "h": 28,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "CAS'LEY\nASESORÍA JURÍDICA",
+        "w": 266,
+        "h": 63,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Inicio",
+        "w": 44,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Áreas de Práctica",
+        "w": 128,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Por Qué Confiar",
+        "w": 116,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Abogados",
+        "w": 76,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Cómo Trabajamos",
+        "w": 131,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Contacto",
+        "w": 70,
+        "h": 66,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "Consulta Directa",
+        "w": 161,
+        "h": 67,
+        "pass": true
+      },
+      {
+        "tag": "a",
+        "texto": "WhatsApp Inmediato",
+        "w": 263,
+        "h": 52,
+        "pass": true
+      }
+    ]
+  },
+  "focoTeclado": {
+    "totalInteractivos": 23,
+    "conFocoVisible": 23,
+    "sinFocoVisible": 0,
+    "trampasDetectadas": 0,
+    "cumple": true
+  },
+  "veredicto": "OK"
+}

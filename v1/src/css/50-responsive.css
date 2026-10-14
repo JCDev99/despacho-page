@@ -1,0 +1,83 @@
+/* Reglas responsivas calibradas para 1440px, 390px y 360px */
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .main-nav, .nav-cta-btn {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .top-bar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-4, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .v1-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .section-dark, .section-light, .section-alt {
+    padding: 3.5rem 0;
+  }
+  
+  .hero-v1 {
+    padding: 3.5rem 0 4rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+  }
+  
+  .contact-box {
+    padding: 2rem 1.25rem;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+/* Blindaje extra para 390px y 360px */
+@media (max-width: 400px) {
+  .brand-text-name {
+    font-size: 1.15rem;
+  }
+  .brand-text-sub {
+    font-size: 0.6875rem;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .practice-card, .feature-card, .lawyer-card, .process-step-card {
+    padding: 1.25rem 1rem;
+  }
+}

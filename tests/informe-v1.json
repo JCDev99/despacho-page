@@ -1,7 +1,7 @@
 {
   "variante": "v1",
-  "url": "http://127.0.0.1:59059/v1/index.html",
-  "ts": "2026-10-14T19:08:24.643Z",
+  "url": "http://127.0.0.1:43475/v1/index.html",
+  "ts": "2026-10-21T21:52:06.787Z",
   "desbordes": {
     "1440px": 0,
     "390px": 0,
@@ -115,7 +115,7 @@
   "erroresConsola": [],
   "peticionesExternas": [],
   "contraste": {
-    "totalMuestras": 86,
+    "totalMuestras": 95,
     "peorRatio": 6.79,
     "peorPareja": {
       "sel": "p.section-desc",
@@ -282,7 +282,7 @@
     ]
   },
   "objetivoTactil": {
-    "totalControles": 23,
+    "totalControles": 24,
     "controlesMenores24": 0,
     "minAncho": 37,
     "minAlto": 28,
@@ -361,8 +361,8 @@
     ]
   },
   "focoTeclado": {
-    "totalInteractivos": 23,
-    "conFocoVisible": 23,
+    "totalInteractivos": 24,
+    "conFocoVisible": 24,
     "sinFocoVisible": 0,
     "trampasDetectadas": 0,
     "cumple": true

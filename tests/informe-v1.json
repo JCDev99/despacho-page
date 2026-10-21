@@ -1,7 +1,7 @@
 {
   "variante": "v1",
-  "url": "http://127.0.0.1:59023/v1/index.html",
-  "ts": "2026-10-21T23:06:28.770Z",
+  "url": "http://127.0.0.1:49809/v1/index.html",
+  "ts": "2026-10-21T23:15:25.462Z",
   "desbordes": {
     "1440px": 0,
     "390px": 0,
@@ -115,7 +115,7 @@
   "erroresConsola": [],
   "peticionesExternas": [],
   "contraste": {
-    "totalMuestras": 95,
+    "totalMuestras": 98,
     "peorRatio": 6.79,
     "peorPareja": {
       "sel": "p.section-desc",
@@ -181,6 +181,16 @@
       },
       {
         "sel": "a.nav-link",
+        "texto": "Novedades",
+        "ratio": 14.13,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(226,232,240)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.nav-link",
         "texto": "Contacto",
         "ratio": 14.13,
         "req": 4.5,
@@ -241,6 +251,16 @@
       },
       {
         "sel": "a.mobile-nav-link",
+        "texto": "Novedades",
+        "ratio": 17.41,
+        "req": 4.5,
+        "isLarge": false,
+        "pass": true,
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(11,27,43)"
+      },
+      {
+        "sel": "a.mobile-nav-link",
         "texto": "Contacto y Horarios",
         "ratio": 17.41,
         "req": 4.5,
@@ -258,31 +278,11 @@
         "pass": true,
         "fg": "rgb(255,255,255)",
         "bg": "rgb(11,27,43)"
-      },
-      {
-        "sel": "p.hero-subtitle",
-        "texto": "Representación y consultoría legal ",
-        "ratio": 11.73,
-        "req": 4.5,
-        "isLarge": false,
-        "pass": true,
-        "fg": "rgb(203,213,225)",
-        "bg": "rgb(11,27,43)"
-      },
-      {
-        "sel": "h2.section-title",
-        "texto": "Áreas de Práctica Jurídica",
-        "ratio": 17.06,
-        "req": 3,
-        "isLarge": true,
-        "pass": true,
-        "fg": "rgb(15,23,42)",
-        "bg": "rgb(248,250,252)"
       }
     ]
   },
   "objetivoTactil": {
-    "totalControles": 24,
+    "totalControles": 26,
     "controlesMenores24": 0,
     "minAncho": 37,
     "minAlto": 28,
@@ -298,8 +298,8 @@
       {
         "tag": "a",
         "texto": "CAS'LEY\nASESORÍA JURÍDICA",
-        "w": 161,
-        "h": 107,
+        "w": 44,
+        "h": 562,
         "pass": true
       },
       {
@@ -339,6 +339,13 @@
       },
       {
         "tag": "a",
+        "texto": "Novedades",
+        "w": 92,
+        "h": 44,
+        "pass": true
+      },
+      {
+        "tag": "a",
         "texto": "Contacto",
         "w": 76,
         "h": 44,
@@ -350,19 +357,12 @@
         "w": 171,
         "h": 44,
         "pass": true
-      },
-      {
-        "tag": "a",
-        "texto": "WhatsApp Inmediato",
-        "w": 263,
-        "h": 52,
-        "pass": true
       }
     ]
   },
   "focoTeclado": {
-    "totalInteractivos": 24,
-    "conFocoVisible": 24,
+    "totalInteractivos": 26,
+    "conFocoVisible": 26,
     "sinFocoVisible": 0,
     "trampasDetectadas": 0,
     "cumple": true

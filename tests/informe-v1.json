@@ -1,7 +1,7 @@
 {
   "variante": "v1",
-  "url": "http://127.0.0.1:34315/v1/index.html",
-  "ts": "2026-10-21T22:44:12.855Z",
+  "url": "http://127.0.0.1:39037/v1/index.html",
+  "ts": "2026-10-21T22:51:58.688Z",
   "desbordes": {
     "1440px": 0,
     "390px": 0,
@@ -298,57 +298,57 @@
       {
         "tag": "a",
         "texto": "CAS'LEY\nASESORÍA JURÍDICA",
-        "w": 266,
+        "w": 209,
         "h": 63,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Inicio",
-        "w": 44,
-        "h": 66,
+        "w": 48,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Áreas de Práctica",
-        "w": 128,
-        "h": 66,
+        "w": 139,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Por Qué Confiar",
-        "w": 116,
-        "h": 66,
+        "w": 126,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Abogados",
-        "w": 76,
-        "h": 66,
+        "w": 82,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Cómo Trabajamos",
-        "w": 131,
-        "h": 66,
+        "w": 142,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Contacto",
-        "w": 70,
-        "h": 66,
+        "w": 76,
+        "h": 44,
         "pass": true
       },
       {
         "tag": "a",
         "texto": "Consulta Directa",
-        "w": 161,
-        "h": 67,
+        "w": 171,
+        "h": 44,
         "pass": true
       },
       {

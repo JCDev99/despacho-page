@@ -3,4 +3,4 @@ Allow: /
 Disallow: /v1/
 Disallow: /v2/
 
-Sitemap: https://jcdev99.github.io/despacho-page/sitemap.xml
+Sitemap: https://despacho.jc99.dev/sitemap.xml

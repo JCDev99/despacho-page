@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CAS'LEY">
+  <rect width="64" height="64" rx="12" fill="#0B1B2B"/>
+  <path d="M32 14v6M20 22h24M20 22l-6 14h12zM44 22l6 14H38z" fill="none" stroke="#E6C280" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 50h36" stroke="#E6C280" stroke-width="3" stroke-linecap="round"/>
+  <path d="M26 50c0-4 2.7-7 6-7s6 3 6 7" fill="none" stroke="#E6C280" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -200,6 +200,7 @@ def pagina(titulo: str, descripcion: str, cuerpo: str, extra_head: str = "", can
   <title>{html.escape(titulo)}</title>
   <meta name="description" content="{html.escape(descripcion)}">
   <meta name="theme-color" content="#0F172A">{can}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/novedades/novedades.css">
   <link rel="alternate" type="application/rss+xml" title="Novedades del DOF — CAS'LEY" href="/novedades/feed.xml">{extra_head}
 </head>

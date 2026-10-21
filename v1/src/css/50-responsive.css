@@ -1,5 +1,20 @@
 /* Reglas responsivas calibradas para 1440px, 390px y 360px */
 
+/* Franja intermedia (841-1279 px): el menú completo debe caber sin partir palabras.
+   Medido el 21-oct-2026 a 1280 px: los enlaces medían 44 px y el texto se partía en 3 líneas. */
+@media (max-width: 1279px) and (min-width: 841px) {
+  .main-nav {
+    gap: 0.9rem;
+  }
+  .nav-link {
+    font-size: 0.875rem;
+  }
+  .nav-cta-btn {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.8125rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);

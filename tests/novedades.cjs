@@ -11,6 +11,10 @@ const path = require('path');
 
 const arg = process.argv.find(a => a.startsWith('--servido='));
 const BASE = arg ? arg.split('=')[1].replace(/\/$/, '') : 'http://127.0.0.1:8123';
+const HOST_PERMITIDO = new URL(BASE).host;
+// Cloudflare inyecta su beacon de analítica en el edge: no lo pide el sitio,
+// y no existe cuando se sirve en local. Se tolera solo en la verificación pública.
+const EXTERNAS_DEL_EDGE = /^https:\/\/static\.cloudflareinsights\.com\//;
 const RAIZ = path.resolve(__dirname, '..');
 const ANCHOS = [1440, 1024, 768, 390, 360];
 
@@ -38,7 +42,7 @@ const rgbHex = s => {
     const errores = [], externas = [];
     p.on('console', m => { if (m.type() === 'error') errores.push(m.text()); });
     p.on('pageerror', e => errores.push(e.message));
-    p.on('request', r => { const u = new URL(r.url()); if (!/127\.0\.0\.1|localhost/.test(u.host)) externas.push(r.url()); });
+    p.on('request', r => { const u = new URL(r.url()); if (u.host !== HOST_PERMITIDO && !EXTERNAS_DEL_EDGE.test(r.url())) externas.push(r.url()); });
     await p.goto(`${BASE}/novedades/`, { waitUntil: 'networkidle' });
     await p.waitForSelector('#lista .nota');
     const over = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);

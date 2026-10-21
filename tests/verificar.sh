@@ -26,10 +26,12 @@ python3 -m http.server "$PORT" --directory "$REPO_ROOT" > /dev/null 2>&1 &
 SERVER_PID=$!
 
 cleanup() {
-  if [ -n "${SERVER_PID:-}" ]; then
-    kill "$SERVER_PID" 2>/dev/null || true
-    wait "$SERVER_PID" 2>/dev/null || true
-  fi
+  for pid in "${SERVER_PID:-}" "${SERVER_NOV_PID:-}"; do
+    if [ -n "$pid" ]; then
+      kill "$pid" 2>/dev/null || true
+      wait "$pid" 2>/dev/null || true
+    fi
+  done
 }
 trap cleanup EXIT INT TERM
 
@@ -147,6 +149,27 @@ if [ "$ARNES_RC" -ne 0 ]; then
   echo "ERROR: El arnés Playwright falló con código $ARNES_RC" >&2
   exit "$ARNES_RC"
 fi
+
+echo ""
+echo "=== 5b. ARNÉS DEL EXPLORADOR DE NOVEDADES (RAÍZ = v1, COMO EN PRODUCCIÓN) ==="
+PORT_NOV="$(python3 -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')"
+python3 -m http.server "$PORT_NOV" --directory "$REPO_ROOT/v1" > /dev/null 2>&1 &
+SERVER_NOV_PID=$!
+
+python3 - "$PORT_NOV" <<'PY'
+import sys, time, urllib.request
+url = f"http://127.0.0.1:{sys.argv[1]}/novedades/"
+for _ in range(40):
+    try:
+        with urllib.request.urlopen(url, timeout=1) as r:
+            if r.status == 200:
+                sys.exit(0)
+    except Exception:
+        time.sleep(0.1)
+sys.exit(1)
+PY
+
+node "$REPO_ROOT/tests/novedades.cjs" --servido="http://127.0.0.1:$PORT_NOV"
 
 echo ""
 echo "=== 6. BALANCE Y VEREDICTO FINAL ==="

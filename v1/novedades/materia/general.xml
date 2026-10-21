@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General — CAS'LEY</title>
+    <link>https://despacho.jc99.dev/novedades/materia/general.html</link>
+    <description>Publicaciones oficiales seleccionadas por relevancia jurídica.</description>
+    <language>es-MX</language>
+    <lastBuildDate>Wed, 14 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <atom:link href="https://despacho.jc99.dev/novedades/materia/general.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>DECRETO de entornos digitales seguros para niñas, niños y adolescentes.</title>
+      <link>https://despacho.jc99.dev/novedades/5801237.html</link>
+      <guid isPermaLink="true">https://despacho.jc99.dev/novedades/5801237.html</guid>
+      <pubDate>Wed, 14 Oct 2026 08:00:00 +0000</pubDate>
+      <category>Decreto</category>
+      <description>El presente decreto es de orden público, de interés general y de observancia obligatoria en todo el territorio nacional, tiene por objeto establecer las medidas y mecanismos que las Plataformas digitales deben implementar para garantizar entornos digitales seguros para niñas,</description>
+    </item>
+    <item>
+      <title>DECRETO por el que se reforman y adicionan los artículos 82, 116 y 122 de la Constitución Política de los Estados Unidos Mexicanos, en materia de nacionalidad única para el ejercicio de la titularidad de los Poderes Ejecutivos Federal y Locales.</title>
+      <link>https://despacho.jc99.dev/novedades/5800617.html</link>
+      <guid isPermaLink="true">https://despacho.jc99.dev/novedades/5800617.html</guid>
+      <pubDate>Wed, 07 Oct 2026 08:00:00 +0000</pubDate>
+      <category>Decreto</category>
+      <description>Se reforman los artículos 82, párrafo primero y su fracción I, párrafo primero; 116, párrafo segundo, fracción I, párrafo quinto, y 122, Apartado A, fracción III, párrafo segundo, y se adicionan a los artículos 82, fracción I, los párrafos segundo y tercero; 116, párrafo</description>
+    </item>
+  </channel>
+</rss>

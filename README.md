@@ -83,6 +83,7 @@ El script `tests/verificar.sh` automatiza el ciclo completo de auditoría:
 3. Comprueba la **paridad MD5 servido vs disco** para la portada, `v1` y `v2`.
 4. Ejecuta un **control negativo** para garantizar que los respaldos (`.bak`, `.old`) devuelven código HTTP `404`.
 5. Corre el arnés de Playwright (`tests/arnes.cjs`) midiendo layout (1440, 390, 360 px), peticiones externas, errores de consola, contraste WCAG y accesibilidad.
+6. Corre el arnés del explorador de Novedades (`tests/novedades.cjs`) sirviendo `v1/` como raíz, igual que en producción: desbordes a 1440/1024/768/390/360, contraste, foco, red externa, coherencia de los filtros con `datos.json`, búsqueda con estado en URL y render sin JavaScript.
 
 ```bash
 ./tests/verificar.sh
@@ -103,3 +104,29 @@ El repositorio está concebido para desplegarse de manera directa y sin pasos de
 - **Destino:** GitHub Pages alojado en la rama principal (`main`) desde la raíz `/`.
 - **Portabilidad de dominio:** Todas las rutas son estrictamente relativas (ej. `./v1/index.html`), lo que permite que el sitio funcione indistintamente en servidores locales, subdirectorios de GitHub Pages o dominios personalizados sin alterar el código fuente.
 - **Regla de Gerencia:** La publicación, commits y firmas los realiza Gerencia.
+
+---
+
+## 5. Sección de Novedades (`/novedades/`)
+
+Generada por `generador-novedades.py` a partir de la API interna del DOF; el sitio publicado no consulta la API en tiempo de ejecución.
+
+```bash
+python3 generador-novedades.py            # descarga de la API y regenera
+python3 generador-novedades.py --offline  # usa v1/src/novedades-snapshot.json
+python3 generador-novedades.py --limite 60
+```
+
+Produce, en `v1/novedades/`:
+
+- `index.html`: explorador con filtros de **fuente oficial**, **tema** (multiselección), **tipo de documento**, **emisor**, **rango de fechas** con atajos y **búsqueda de texto** con resaltado. El estado vive en la URL (`?tema=fiscal&desde=…`), de modo que cualquier combinación se puede compartir o recuperar con el botón Atrás.
+- `datos.json`: índice que consume el filtrado en cliente (`v1/src/novedades/app.js`).
+- `novedades.css` y `novedades.js`: copias de `v1/src/novedades/` (esa carpeta es la fuente editable; no se tocan los ficheros publicados a mano).
+- `<clave>.html`: ficha de cada publicación, con datos, materias, aviso legal, JSON-LD y navegación anterior/siguiente.
+- `materia/<tema>.html`: listado completo por tema, sin JavaScript e indexable.
+- `feed.xml` y `materia/<tema>.xml`: RSS general y por tema.
+- `sitemap.xml` en la raíz del repo, regenerado con las fichas y las páginas de tema.
+
+**Fuentes:** el filtro se construye con las fuentes presentes en los datos (`campo fuente`). Hoy solo hay `DOF`; `POBC` y `SAT` están declaradas en `FUENTES` y aparecerán automáticamente en cuanto la API entregue notas con ese campo, sin tocar el HTML.
+
+**Determinismo:** no se usa la hora actual. El `lastBuildDate` del RSS, el pie y los contadores usan la fecha de la nota más reciente, de modo que dos ejecuciones con los mismos datos producen bytes idénticos.

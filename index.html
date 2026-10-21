@@ -3,342 +3,886 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CAS'LEY - Portal de plantillas web estáticas para el despacho jurídico en San Quintín, B.C.">
-  <title>CAS'LEY | Portal de Plantillas Web Estáticas</title>
+  <meta name="description" content="CAS'LEY - Despacho de Asesoría Jurídica Profesional en San Quintín, B.C. Más de 33 años de trayectoria. Litigio corporativo, familiar, civil, mercantil, laboral y penal.">
+  <title>CAS'LEY | Asesoría Jurídica Profesional — 33+ Años en Baja California</title>
+  <!-- URL canónica del sitio. Cambiar aquí si el despacho estrena dominio propio. -->
+  <link rel="canonical" href="https://jcdev99.github.io/despacho-page/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0F172A">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAS'LEY — Asesoría Jurídica Profesional">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:url" content="https://jcdev99.github.io/despacho-page/">
+  <meta property="og:title" content="CAS'LEY | Asesoría Jurídica Profesional — 33+ Años en Baja California">
+  <meta property="og:description" content="Despacho de Asesoría Jurídica Profesional en San Quintín, B.C. Litigio corporativo, familiar, civil, mercantil, laboral y penal.">
+  <meta name="twitter:card" content="summary">
   <style>
+:root {
+  /* Paleta Institucional Sobria: Marino, Piedra, Oro apagado */
+  --v1-navy-950: #070F18;
+  --v1-navy-900: #0B1B2B;
+  --v1-navy-800: #13273D;
+  --v1-navy-700: #1E3752;
+  
+  --v1-stone-50: #F8FAFC;
+  --v1-stone-100: #F1F5F9;
+  --v1-stone-200: #E2E8F0;
+  --v1-stone-300: #CBD5E1;
+  --v1-stone-400: #94A3B8;
+  --v1-stone-600: #475569;
+  --v1-stone-700: #334155;
+  --v1-stone-800: #1E293B;
+  --v1-stone-900: #0F172A;
+  
+  /* Acentos de oro apagado calibrados para WCAG AA (>= 4.5:1) */
+  --v1-gold-light: #E6C280;   /* en fondo oscuro: ratio 10.2:1 */
+  --v1-gold-base: #C5A059;
+  --v1-gold-dark: #85581A;    /* en fondo claro: ratio 5.8:1 */
+  
+  --v1-border-dark: rgba(226, 232, 240, 0.12);
+  --v1-border-light: #E2E8F0;
+  
+  --v1-font-serif: "Georgia", "Times New Roman", "Cambria", serif;
+  --v1-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --v1-container-max: 1180px;
+}
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-:root {
-  --bg-page: #0B1320;
-  --bg-surface: #131E30;
-  --bg-surface-elevated: #1B2940;
-  --border-color: #2A3A54;
-  --text-main: #F1F5F9;
-  --text-muted: #94A3B8;
-  --accent-gold: #E6C280;
-  --accent-terracotta: #E07A5F;
-  --font-serif: "Georgia", "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+html {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-sans);
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: var(--v1-font-sans);
+  background-color: var(--v1-stone-50);
+  color: var(--v1-stone-900);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
-.container {
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
+img, svg {
+  display: block;
+  max-width: 100%;
 }
 
 a {
-  color: var(--accent-gold);
+  color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s ease;
 }
 
-a:hover {
-  opacity: 0.85;
+button {
+  font-family: inherit;
+  font-size: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-a:focus-visible, button:focus-visible {
-  outline: 3px solid var(--accent-gold);
+/* Foco visible estricto para navegación por teclado (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--v1-gold-light);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
-.portal-header {
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.5rem 0;
-  background-color: rgba(11, 19, 32, 0.95);
+.on-light a:focus-visible,
+.on-light button:focus-visible {
+  outline: 3px solid var(--v1-gold-dark);
 }
 
-.header-inner {
-  display: flex;
+/* Requisito táctil mínimo WCAG (>= 24x24 px) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+}
+
+/* Utilidades de texto */
+.text-center { text-align: center; }
+.text-gold { color: var(--v1-gold-light); }
+.text-gold-dark { color: var(--v1-gold-dark); }
+.text-muted { color: var(--v1-stone-600); }
+.text-muted-dark { color: var(--v1-stone-400); }
+
+/* Salto de línea seguro contra desborde */
+h1, h2, h3, h4, p, span, a, li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.v1-container {
+  width: 100%;
+  max-width: var(--v1-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Barra superior institucional */
+.top-notice-bar {
+  background-color: var(--v1-navy-950);
+  color: var(--v1-stone-300);
+  font-size: 0.8125rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--v1-border-dark);
+}
+
+.top-bar-content {
+  display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.brand-badge {
-  display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-.brand-icon {
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.top-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 28px;
+}
+
+/* Cabecera y Navegación */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #0B1B2B;
+  color: #FFFFFF;
+  border-bottom: 1px solid var(--v1-border-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.brand-shield {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, #E6C280, #B88E48);
-  border-radius: 8px;
+  background: linear-gradient(145deg, #1A3450, #0B1B2B);
+  border: 1px solid var(--v1-gold-light);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0B1320;
-  font-weight: bold;
+  color: var(--v1-gold-light);
+  flex-shrink: 0;
 }
 
-.brand-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+.brand-text-name {
+  font-family: var(--v1-font-serif);
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--text-main);
-  line-height: 1.2;
-}
-
-.brand-subtitle {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
   letter-spacing: 0.08em;
+  color: #FFFFFF;
+  line-height: 1.1;
 }
 
-.tag-trayectoria {
+.brand-text-sub {
   font-size: 0.75rem;
-  padding: 0.35rem 0.75rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 9999px;
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.portal-hero {
-  padding: 3.5rem 0 2.5rem;
-  text-align: center;
-}
-
-.hero-pill {
-  display: inline-block;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  color: var(--v1-gold-light);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 0.35rem 0.85rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 9999px;
-  color: var(--accent-gold);
-  margin-bottom: 1.25rem;
 }
 
-.hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 1rem;
-  color: var(--text-main);
-}
-
-.hero-desc {
-  max-width: 680px;
-  margin: 0 auto 1.5rem;
-  color: var(--text-muted);
-  font-size: 1.0625rem;
-}
-
-.variants-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0 4rem;
-}
-
-.card-variant {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2rem;
+.main-nav {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.card-variant:hover {
-  transform: translateY(-4px);
-}
-
-.card-v1 {
-  border-top: 4px solid var(--accent-gold);
-}
-
-.card-v2 {
-  border-top: 4px solid var(--accent-terracotta);
-}
-
-.card-meta {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 1.75rem;
 }
 
-.variant-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-}
-
-.card-v1 .variant-label {
-  background-color: rgba(230, 194, 128, 0.15);
-  color: var(--accent-gold);
-}
-
-.card-v2 .variant-label {
-  background-color: rgba(224, 122, 95, 0.15);
-  color: var(--accent-terracotta);
-}
-
-.variant-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-  color: var(--text-main);
-}
-
-.variant-summary {
+.nav-link {
+  color: var(--v1-stone-200);
   font-size: 0.9375rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  font-weight: 500;
+  padding: 0.5rem 0.25rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
-.spec-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2rem;
+.nav-link:hover {
+  color: var(--v1-gold-light);
+}
+
+.nav-cta-btn {
+  background: var(--v1-gold-light);
+  color: var(--v1-navy-950);
+  font-weight: 600;
   font-size: 0.875rem;
-}
-
-.spec-item {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.6rem;
-  color: #CBD5E1;
-}
-
-.spec-bullet {
-  color: var(--accent-gold);
-  font-weight: bold;
-}
-
-.card-v2 .spec-bullet {
-  color: var(--accent-terracotta);
-}
-
-.btn-open {
+  padding: 0.65rem 1.25rem;
+  border-radius: 4px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 100%;
-  min-height: 48px;
-  padding: 0.75rem 1.25rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-.btn-v1 {
-  background-color: var(--accent-gold);
-  color: #0B1320;
+.nav-cta-btn:hover {
+  background: #F3DCAC;
 }
 
-.btn-v1:hover {
-  background-color: #F0D49E;
-  opacity: 1;
+/* Botón menú móvil */
+.mobile-menu-btn {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  background-color: var(--v1-navy-800);
+  color: var(--v1-gold-light);
+  border: 1px solid var(--v1-border-dark);
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-v2 {
-  background-color: var(--accent-terracotta);
-  color: #FFFFFF;
+/* Menú móvil desplegable */
+.mobile-nav-panel {
+  display: none;
+  background-color: var(--v1-navy-900);
+  border-bottom: 1px solid var(--v1-border-dark);
+  padding: 1.5rem;
 }
 
-.btn-v2:hover {
-  background-color: #E8927B;
-  opacity: 1;
-}
-
-.portal-notice {
-  background-color: var(--bg-surface-elevated);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  margin: 0 0 3rem;
+.mobile-nav-panel.open {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  align-items: flex-start;
 }
 
-.notice-icon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  color: var(--accent-gold);
+.mobile-nav-link {
+  color: #FFFFFF;
+  font-size: 1.0625rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
-.notice-text {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+/* Secciones generales */
+.section-dark {
+  background-color: var(--v1-navy-900);
+  color: #FFFFFF;
+  padding: 5rem 0;
+}
+
+.section-light {
+  background-color: var(--v1-stone-50);
+  color: var(--v1-stone-900);
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background-color: var(--v1-stone-100);
+  color: var(--v1-stone-900);
+  padding: 5rem 0;
+}
+
+.section-header-centered {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.section-badge-gold {
+  background-color: rgba(230, 194, 128, 0.12);
+  color: var(--v1-gold-light);
+  border: 1px solid rgba(230, 194, 128, 0.3);
+}
+
+.section-badge-darkgold {
+  background-color: rgba(133, 88, 26, 0.1);
+  color: var(--v1-gold-dark);
+  border: 1px solid rgba(133, 88, 26, 0.25);
+}
+
+.section-title {
+  font-family: var(--v1-font-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+.section-desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
   margin: 0;
 }
 
-.notice-text strong {
-  color: var(--text-main);
+/* Retículas clásicas */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
 
-.portal-footer {
-  border-top: 1px solid var(--border-color);
-  padding: 2rem 0;
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+/* Héroe v1 */
+.hero-v1 {
+  background-color: #0B1B2B;
+  background-image: radial-gradient(circle at 50% 20%, #152B42 0%, #0B1B2B 70%);
+  color: #FFFFFF;
+  padding: 5.5rem 0 6rem;
+  text-align: center;
+  border-bottom: 1px solid var(--v1-border-dark);
+}
+
+.hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-prestige-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(230, 194, 128, 0.1);
+  border: 1px solid rgba(230, 194, 128, 0.35);
+  border-radius: 9999px;
+  color: var(--v1-gold-light);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.75rem;
+}
+
+.hero-title {
+  font-family: var(--v1-font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  color: #FFFFFF;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  color: var(--v1-stone-300);
+  line-height: 1.6;
+  margin: 0 auto 2.5rem;
+  max-width: 720px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.btn-primary {
+  background-color: var(--v1-gold-light);
+  color: var(--v1-navy-950);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 4px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #F3DCAC;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #162E48;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 4px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #1F3F61;
+  border-color: #FFFFFF;
+}
+
+/* Tarjetas de Áreas de Práctica */
+.practice-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--v1-border-light);
+  border-top: 3px solid var(--v1-gold-dark);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practice-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.practice-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: var(--v1-stone-100);
+  color: var(--v1-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.practice-title {
+  font-family: var(--v1-font-serif);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--v1-stone-900);
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+
+.practice-desc {
+  font-size: 0.875rem;
+  color: var(--v1-stone-700);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Tarjetas de Confianza y Valores */
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--v1-border-dark);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+}
+
+.feature-num {
+  font-family: var(--v1-font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--v1-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.feature-title {
+  font-family: var(--v1-font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+}
+
+.feature-desc {
+  font-size: 0.875rem;
+  color: var(--v1-stone-300);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Tarjetas de Abogados */
+.lawyer-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--v1-border-light);
+  border-radius: 8px;
+  padding: 2.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lawyer-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v1-gold-dark);
+  margin-bottom: 0.5rem;
+}
+
+.lawyer-name {
+  font-family: var(--v1-font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--v1-stone-900);
+  margin: 0 0 0.75rem;
+}
+
+.lawyer-desc {
+  font-size: 0.9375rem;
+  color: var(--v1-stone-700);
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.lawyer-contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--v1-border-light);
+}
+
+.lawyer-btn-wa {
+  background-color: #075E54;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.lawyer-btn-wa:hover {
+  opacity: 0.9;
+}
+
+.lawyer-btn-tel {
+  background-color: var(--v1-stone-100);
+  color: var(--v1-stone-900);
+  border: 1px solid var(--v1-stone-300);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.lawyer-btn-tel:hover {
+  background-color: var(--v1-stone-200);
+}
+
+/* Pasos del Proceso (Cómo trabajamos) */
+.process-step-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--v1-border-light);
+  border-radius: 6px;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.step-marker {
+  width: 38px;
+  height: 38px;
+  background-color: var(--v1-navy-900);
+  color: var(--v1-gold-light);
+  font-family: var(--v1-font-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.step-title {
+  font-family: var(--v1-font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--v1-stone-900);
+  margin: 0 0 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.875rem;
+  color: var(--v1-stone-700);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Bloque de Contacto y Horarios */
+.contact-box {
+  background-color: var(--v1-navy-950);
+  border: 1px solid var(--v1-border-dark);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  color: #FFFFFF;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.contact-info-col h3 {
+  font-family: var(--v1-font-serif);
+  font-size: 1.25rem;
+  color: var(--v1-gold-light);
+  margin: 0 0 1rem;
+}
+
+.contact-info-col p {
+  color: var(--v1-stone-300);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+/* Pie de página y aviso legal */
+.site-footer {
+  background-color: var(--v1-navy-950);
+  color: var(--v1-stone-400);
+  padding: 3.5rem 0 2rem;
+  border-top: 1px solid var(--v1-border-dark);
+  font-size: 0.875rem;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  color: var(--v1-stone-300);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-nav a:hover {
+  color: var(--v1-gold-light);
+}
+
+.footer-legal-notice {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--v1-stone-300);
+}
+
+.footer-bottom {
   text-align: center;
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: var(--v1-stone-400);
+  padding-top: 1.5rem;
+}
+/* Reglas responsivas calibradas para 1440px, 390px y 360px */
+
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .main-nav, .nav-cta-btn {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .top-bar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
-  .portal-hero {
-    padding: 2.5rem 0 1.5rem;
-  }
-  .variants-grid {
+  .grid-4, .grid-3 {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
-  .card-variant {
-    padding: 1.5rem;
+  
+  .v1-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  .header-inner {
+  
+  .section-dark, .section-light, .section-alt {
+    padding: 3.5rem 0;
+  }
+  
+  .hero-v1 {
+    padding: 3.5rem 0 4rem;
+  }
+  
+  .hero-actions {
     flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+  }
+  
+  .contact-box {
+    padding: 2rem 1.25rem;
+  }
+  
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+/* Blindaje extra para 390px y 360px */
+@media (max-width: 400px) {
+  .brand-text-name {
+    font-size: 1.15rem;
+  }
+  .brand-text-sub {
+    font-size: 0.6875rem;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .practice-card, .feature-card, .lawyer-card, .process-step-card {
+    padding: 1.25rem 1rem;
   }
 }
   </style>
 </head>
 <body>
-  <header class="portal-header">
-    <div class="container header-inner">
-      <div class="brand-badge">
-        <div class="brand-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 1. BARRA SUPERIOR INFORMATIVA -->
+  <div class="top-notice-bar">
+    <div class="v1-container top-bar-content">
+      <div class="top-bar-left">
+        <div class="top-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>Lun - Vie: 9:00 - 18:00 | Sáb: 9:00 - 14:00</span>
+        </div>
+        <div class="top-info-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>San Quintín, B.C.</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+526161070301" class="top-info-item touch-target" style="color: var(--v1-gold-light);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>Lic. Hilda Leyva: +52 616 107 0301</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CABECERA Y NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="v1-container header-container">
+      <a href="#inicio" class="brand-wrapper touch-target" aria-label="CAS'LEY - Asesoría Jurídica Profesional - Inicio">
+        <div class="brand-shield" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
             <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
             <path d="M7 21h10"/>
@@ -347,109 +891,535 @@ a:focus-visible, button:focus-visible {
           </svg>
         </div>
         <div>
-          <div class="brand-title">CAS'LEY</div>
-          <div class="brand-subtitle">Asesoría Jurídica Profesional</div>
+          <div class="brand-text-name">CAS'LEY</div>
+          <div class="brand-text-sub">Asesoría Jurídica · +33 Años</div>
         </div>
+      </a>
+
+      <!-- Menú de escritorio -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#areas" class="nav-link">Áreas de Práctica</a>
+        <a href="#confianza" class="nav-link">Por Qué Confiar</a>
+        <a href="#abogados" class="nav-link">Abogados</a>
+        <a href="#proceso" class="nav-link">Cómo Trabajamos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="#contacto" class="nav-cta-btn">
+          <span>Consulta Directa</span>
+        </a>
+        <button id="v1MobileMenuBtn" class="mobile-menu-btn touch-target" aria-expanded="false" aria-controls="v1MobileMenu" aria-label="Abrir menú de navegación">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
       </div>
-      <div class="tag-trayectoria">33+ años de trayectoria en Baja California</div>
     </div>
+
+    <!-- Panel móvil desplegable -->
+    <nav id="v1MobileMenu" class="mobile-nav-panel" aria-label="Menú móvil">
+      <a href="#inicio" class="mobile-nav-link">Inicio</a>
+      <a href="#areas" class="mobile-nav-link">Áreas de Práctica</a>
+      <a href="#confianza" class="mobile-nav-link">Por Qué Confiar</a>
+      <a href="#abogados" class="mobile-nav-link">Abogados</a>
+      <a href="#proceso" class="mobile-nav-link">Cómo Trabajamos</a>
+      <a href="#contacto" class="mobile-nav-link">Contacto y Horarios</a>
+    </nav>
   </header>
-
-  <main class="container">
-    <section class="portal-hero">
-      <span class="hero-pill">Catálogo de Plantillas de Prueba</span>
-      <h1 class="hero-title">Sitio Web Estático — Despacho CAS'LEY</h1>
-      <p class="hero-desc">
-        Dos propuestas visuales completas y funcionales, construidas desde cero sin frameworks, sin peticiones externas y con verificación determinista bajo el ciclo de la casa Mentor.
-      </p>
-    </section>
-    <section class="portal-notice">
-      <div class="notice-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
+  <!-- 3. HÉROE CON PROPUESTA DE VALOR -->
+  <section id="inicio" class="hero-v1">
+    <div class="v1-container hero-content">
+      <div class="hero-prestige-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
         </svg>
+        <span>33+ AÑOS DE TRAYECTORIA EN ENSENADA</span>
       </div>
-      <p class="notice-text">
-        <strong>Nota informativa:</strong> Las opciones presentadas a continuación son <em>plantillas de prueba</em> diseñadas específicamente para el despacho CAS'LEY en San Quintín, B.C. Ambas comparten el inventario factual estricto del despacho y ofrecen experiencias de diseño marcadamente diferenciadas.
-      </p>
-    </section>
 
-    <section class="variants-grid">
-      <!-- Variante v1 -->
-      <article class="card-variant card-v1">
-        <div>
-          <div class="card-meta">
-            <span class="variant-label">Variante 01</span>
-            <span style="font-size: 0.8125rem; color: #94A3B8;">Institucional</span>
-          </div>
-          <h2 class="variant-title">Institucional Sobria</h2>
-          <p class="variant-summary">
-            Diseño solemne, atemporal y corporativo. Retícula clásica centrada, espacios generosos y jerarquía tradicional que transmite máxima solvencia técnica y respetabilidad jurídica.
-          </p>
-          <ul class="spec-list">
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Paleta:</strong> Azul marino profundo (#0B1B2B), gris piedra y acento dorado apagado.</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Tipografía:</strong> Serif formal en titulares y sans-serif de lectura sobria.</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Composición:</strong> Retícula simétrica centrada, tarjetas equilibradas y mucho aire.</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Tono:</strong> Institucional, formal y riguroso.</li>
-          </ul>
-        </div>
-        <div>
-          <a href="./v1/index.html" class="btn-open btn-v1">
-            <span>Explorar Variante v1</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </article>
+      <h1 class="hero-title">
+        Asesoría Jurídica Profesional con Solidez y Rigor Técnico
+      </h1>
 
-      <!-- Variante v2 -->
-      <article class="card-variant card-v2">
-        <div>
-          <div class="card-meta">
-            <span class="variant-label">Variante 02</span>
-            <span style="font-size: 0.8125rem; color: #94A3B8;">Editorial</span>
+      <p class="hero-subtitle">
+        Representación y consultoría legal integral para personas físicas y morales en San Quintín y Baja California. Filosofía basada en la ética, la honestidad y el trato directo.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/526161070301" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          <span>WhatsApp Inmediato</span>
+        </a>
+        <a href="tel:+526161070301" class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>Llamar al Despacho</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 4. ÁREAS DE PRÁCTICA (8 ÁREAS EN ORDEN ESTRICTO) -->
+  <section id="areas" class="section-light on-light">
+    <div class="v1-container">
+      <div class="section-header-centered">
+        <span class="section-badge section-badge-darkgold">Especialidades Legales</span>
+        <h2 class="section-title">Áreas de Práctica Jurídica</h2>
+        <p class="section-desc text-muted">
+          Asistencia técnica especializada y representación judicial en las principales ramas del derecho mexicano.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <!-- 1. Derecho Corporativo y Empresas -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Derecho Corporativo y Empresas</h3>
+            <p class="practice-desc">Asesoría integral en constitución, contratos comerciales, gobierno corporativo y cumplimiento normativo empresarial.</p>
           </div>
-          <h2 class="variant-title">Editorial Contemporánea</h2>
-          <p class="variant-summary">
-            Diseño vanguardista con espíritu de publicación jurídica moderna. Layout asimétrico en dos columnas, titulares display de gran escala, reglas divisorias finas y numeración destacada.
+        </article>
+
+        <!-- 2. Derecho Familiar y Divorcios -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Derecho Familiar y Divorcios</h3>
+            <p class="practice-desc">Resolución de controversias familiares, divorcios necesarios y voluntarios, custodia, patria potestad y pensiones alimenticias.</p>
+          </div>
+        </article>
+
+        <!-- 3. Juicios Civiles y Arrendamiento -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Juicios Civiles y Arrendamiento</h3>
+            <p class="practice-desc">Litigio civil especializado, controversias de propiedad, contratos y juicios de arrendamiento inmobiliario.</p>
+          </div>
+        </article>
+
+        <!-- 4. Juicios Mercantiles y Cobranza -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Juicios Mercantiles y Cobranza</h3>
+            <p class="practice-desc">Recuperación judicial y extrajudicial de cartera vencida, cobro de pagarés, títulos de crédito y disputas comerciales.</p>
+          </div>
+        </article>
+
+        <!-- 5. Juicios Laborales (patronal y trabajador) -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 3v4M8 3v4"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Juicios Laborales (patronal y trabajador)</h3>
+            <p class="practice-desc">Defensa y representación estratégica ante tribunales laborales tanto para sector empleador como para trabajadores.</p>
+          </div>
+        </article>
+
+        <!-- 6. Defensa y Litigio Penal -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Defensa y Litigio Penal</h3>
+            <p class="practice-desc">Asistencia técnica integral en el Sistema Penal Acusatorio, atención inmediata en fiscalías, cauciones y representación de imputados o víctimas.</p>
+          </div>
+        </article>
+
+        <!-- 7. Trámites Administrativos y Amparos -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Trámites Administrativos y Amparos</h3>
+            <p class="practice-desc">Juicios de amparo directo e indirecto contra actos de autoridad y gestión ante dependencias gubernamentales.</p>
+          </div>
+        </article>
+
+        <!-- 8. Gestión Documental y Contratos -->
+        <article class="practice-card">
+          <div>
+            <div class="practice-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <h3 class="practice-title">Gestión Documental y Contratos</h3>
+            <p class="practice-desc">Elaboración, revisión y blindaje legal de contratos privados, convenios y dictaminación documental preventiva.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- 5. POR QUÉ CONFIAR Y VALORES ÉTICOS -->
+  <section id="confianza" class="section-dark">
+    <div class="v1-container">
+      <div class="section-header-centered">
+        <span class="section-badge section-badge-gold">Nuestra Filosofía</span>
+        <h2 class="section-title">Por Qué Confiar en CAS'LEY</h2>
+        <p class="section-desc text-muted-dark">
+          Más de tres décadas defendiendo los intereses legítimos de nuestros clientes con integridad y solvencia procesal.
+        </p>
+      </div>
+
+      <!-- 4 Razones para confiar -->
+      <div class="grid-4" style="margin-bottom: 4rem;">
+        <div class="feature-card">
+          <div class="feature-num">01</div>
+          <h3 class="feature-title">33 años de trayectoria</h3>
+          <p class="feature-desc">Tres décadas de experiencia ininterrumpida y conocimiento profundo del entorno judicial en Baja California.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">02</div>
+          <h3 class="feature-title">Estrategia preventiva</h3>
+          <p class="feature-desc">Blindaje legal previo orientado a anticipar riesgos, minimizar contingencias y evitar litigios innecesarios.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">03</div>
+          <h3 class="feature-title">Acompañamiento constante</h3>
+          <p class="feature-desc">Comunicación fluida y transparente en cada fase de su trámite o litigio, manteniéndolo debidamente informado.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-num">04</div>
+          <h3 class="feature-title">Claridad en honorarios</h3>
+          <p class="feature-desc">Presupuestos transparentes y honestos desde la consulta inicial, con convenios precisos y sin costos ocultos.</p>
+        </div>
+      </div>
+
+      <!-- 4 Valores éticos -->
+      <div class="section-header-centered" style="margin-bottom: 2.5rem;">
+        <h3 style="font-family: var(--v1-font-serif); font-size: 1.75rem; color: #FFFFFF; margin: 0 0 0.5rem;">Valores Institucionales</h3>
+        <p class="section-desc text-muted-dark">Principios rectores que guían nuestra actuación diaria.</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="feature-card" style="border-top: 2px solid var(--v1-gold-light);">
+          <h4 class="feature-title">Honestidad</h4>
+          <p class="feature-desc">Diagnósticos jurídicos realistas y fundados, sin crear falsas expectativas ni prometer resultados imposibles.</p>
+        </div>
+
+        <div class="feature-card" style="border-top: 2px solid var(--v1-gold-light);">
+          <h4 class="feature-title">Rigor técnico</h4>
+          <p class="feature-desc">Análisis sustantivo y procesal de alta precisión, apegado al marco normativo y jurisprudencia vigente.</p>
+        </div>
+
+        <div class="feature-card" style="border-top: 2px solid var(--v1-gold-light);">
+          <h4 class="feature-title">Trato directo</h4>
+          <p class="feature-desc">Atención cercana y personalizada a cargo de abogados titulares con amplia experiencia en la materia.</p>
+        </div>
+
+        <div class="feature-card" style="border-top: 2px solid var(--v1-gold-light);">
+          <h4 class="feature-title">Garantía ética</h4>
+          <p class="feature-desc">Compromiso inquebrantable con la confidencialidad, el secreto profesional y la lealtad procesal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 6. ABOGADOS TITULARES Y CONTACTO DIRECTO -->
+  <section id="abogados" class="section-alt on-light">
+    <div class="v1-container">
+      <div class="section-header-centered">
+        <span class="section-badge section-badge-darkgold">Equipo Jurídico</span>
+        <h2 class="section-title">Abogados Titulares</h2>
+        <p class="section-desc text-muted">
+          Profesionales del derecho con amplia experiencia en litigio y consultoría en San Quintín, B.C.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Lic. Hilda Leyva -->
+        <article class="lawyer-card">
+          <div>
+            <div class="lawyer-badge">Abogada Titular · Asesoría Legal</div>
+            <h3 class="lawyer-name">Lic. Hilda Leyva</h3>
+          </div>
+          <div class="lawyer-contact-actions">
+            <a href="https://wa.me/526161070301" class="lawyer-btn-wa" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              <span>WhatsApp: +52 616 107 0301</span>
+            </a>
+            <a href="tel:+526161070301" class="lawyer-btn-tel">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Llamada: +52 616 107 0301</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Lic. Juan Castillo -->
+        <article class="lawyer-card">
+          <div>
+            <div class="lawyer-badge">Abogado Titular · Asesoría Legal</div>
+            <h3 class="lawyer-name">Lic. Juan Castillo</h3>
+          </div>
+          <div class="lawyer-contact-actions">
+            <a href="https://wa.me/526161070312" class="lawyer-btn-wa" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              <span>WhatsApp: +52 616 107 0312</span>
+            </a>
+            <a href="tel:+526161070312" class="lawyer-btn-tel">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Llamada: +52 616 107 0312</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- 7. CÓMO TRABAJAMOS / EXPECTATIVA DEL PRIMER CONTACTO -->
+  <section id="proceso" class="section-light on-light">
+    <div class="v1-container">
+      <div class="section-header-centered">
+        <span class="section-badge section-badge-darkgold">Metodología de Trabajo</span>
+        <h2 class="section-title">Qué Esperar del Primer Contacto</h2>
+        <p class="section-desc text-muted">
+          Un proceso estructurado, transparente y confidencial para la atención y valoración inicial de su asunto legal.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Paso 1 -->
+        <div class="process-step-card">
+          <div class="step-marker">1</div>
+          <h3 class="step-title">Contacto Inicial</h3>
+          <p class="step-desc">
+            Comunicación directa por llamada o mensaje de WhatsApp. Escuchamos el planteamiento preliminar de su situación y hechos relevantes.
           </p>
-          <ul class="spec-list">
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Paleta:</strong> Fondo crema cálido (#FBF9F5), tinta carbón y acento terracota.</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Tipografía:</strong> Titulares display con numeración editorial grande (01—08).</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Composición:</strong> Asimétrica en dos columnas con líneas estructurales finas.</li>
-            <li class="spec-item"><span class="spec-bullet">▪</span> <strong>Tono:</strong> Cercano, contemporáneo y de alta distinción.</li>
-          </ul>
         </div>
-        <div>
-          <a href="./v2/index.html" class="btn-open btn-v2">
-            <span>Explorar Variante v2</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+
+        <!-- Paso 2 -->
+        <div class="process-step-card">
+          <div class="step-marker">2</div>
+          <h3 class="step-title">Análisis Técnico</h3>
+          <p class="step-desc">
+            Revisión objetiva del marco legal y documental aplicable. Evaluamos la viabilidad jurídica con honestidad, sin falsas promesas.
+          </p>
         </div>
-      </article>
-    </section>
-  </main>
-  <footer class="portal-footer">
-    <div class="container">
-      <p style="margin: 0 0 0.5rem;">
-        <strong>CAS'LEY — Asesoría Jurídica Profesional</strong> · Calle Novena #252, Fracc. C.D. San Quintín, Baja California, México.
-      </p>
-      <p style="margin: 0; font-size: 0.75rem; color: #64748B;">
-        Plantillas de demostración desarrolladas bajo el estándar de ciclo de desarrollo web de la casa Mentor. Cero dependencias externas.
-      </p>
+
+        <!-- Paso 3 -->
+        <div class="process-step-card">
+          <div class="step-marker">3</div>
+          <h3 class="step-title">Estrategia y Costos</h3>
+          <p class="step-desc">
+            Presentación de las opciones legales viables, tiempos procesales estimados y presupuesto detallado de honorarios y gastos.
+          </p>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="process-step-card">
+          <div class="step-marker">4</div>
+          <h3 class="step-title">Representación</h3>
+          <p class="step-desc">
+            Formalización de la representación y actuación procesal diligente, con comunicación periódica del estado procesal del asunto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 8. CONTACTO, UBICACIÓN Y HORARIOS -->
+  <section id="contacto" class="section-dark">
+    <div class="v1-container">
+      <div class="section-header-centered">
+        <span class="section-badge section-badge-gold">Atención Personalizada</span>
+        <h2 class="section-title">Canales de Contacto Directo</h2>
+        <p class="section-desc text-muted-dark">
+          Estamos a su disposición para agendar su consulta jurídica inicial en San Quintín, B.C.
+        </p>
+      </div>
+
+      <div class="contact-box">
+        <div class="contact-grid">
+          <!-- Columna 1: Abogados -->
+          <div class="contact-info-col">
+            <h3>Atención Telefónica</h3>
+            <p><strong>Lic. Hilda Leyva:</strong></p>
+            <p><a href="tel:+526161070301" style="color: var(--v1-gold-light);" class="touch-target">+52 (616) 107-0301</a></p>
+            <p style="margin-top: 1rem;"><strong>Lic. Juan Castillo:</strong></p>
+            <p><a href="tel:+526161070312" style="color: var(--v1-gold-light);" class="touch-target">+52 (616) 107-0312</a></p>
+          </div>
+
+          <!-- Columna 2: Ubicación -->
+          <div class="contact-info-col">
+            <h3>Ubicación del Despacho</h3>
+            <p><strong>Calle Novena #252</strong></p>
+            <p>Fraccionamiento C.D. San Quintín</p>
+            <p>Baja California, México</p>
+            <p style="margin-top: 1rem; font-size: 0.8125rem; color: var(--v1-stone-400);">
+              Atención presencial en oficinas previa cita programada. Contáctenos para acordar su visita.
+            </p>
+          </div>
+
+          <!-- Columna 3: Horario -->
+          <div class="contact-info-col">
+            <h3>Horario de Atención</h3>
+            <p><strong>Lunes a Viernes:</strong></p>
+            <p>9:00 AM – 6:00 PM</p>
+            <p style="margin-top: 1rem;"><strong>Sábados:</strong></p>
+            <p>9:00 AM – 2:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 9. PIE DE PÁGINA Y AVISO LEGAL -->
+  <footer class="site-footer">
+    <div class="v1-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div style="font-family: var(--v1-font-serif); font-size: 1.25rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">
+            CAS'LEY
+          </div>
+          <p style="margin: 0; color: var(--v1-stone-300); font-size: 0.875rem;">
+            Asesoría Jurídica Profesional · 33+ años de trayectoria en Baja California. Solidez técnica, honestidad y defensa comprometida.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación secundaria">
+          <a href="#inicio">Inicio</a>
+          <a href="#areas">Áreas de Práctica</a>
+          <a href="#confianza">Por Qué Confiar</a>
+          <a href="#abogados">Abogados</a>
+          <a href="#proceso">Cómo Trabajamos</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#aviso-privacidad">Aviso de Privacidad</a>
+        </nav>
+      </div>
+
+      <div class="footer-legal-notice">
+        <strong>Aviso Legal y de Responsabilidad:</strong> El contenido publicado en este sitio web tiene carácter estrictamente informativo y divulgativo general sobre los servicios profesionales de CAS'LEY. Ningún texto aquí incluido constituye, ni debe interpretarse como, asesoría jurídica o formalización de una relación abogado-cliente para un caso concreto. Toda situación legal requiere un análisis documental y fáctico individualizado por parte de un abogado con cédula profesional vigente.
+      </div>
+
+      <!-- Aviso de privacidad (LFPDPPP, versión simplificada). PROVISIONAL:
+           faltan por confirmar el correo electrónico de contacto y las cédulas
+           profesionales de los abogados responsables. -->
+      <details id="aviso-privacidad" class="footer-legal-notice" style="margin-top: 1rem;">
+        <summary style="cursor: pointer; font-weight: 700;">Aviso de Privacidad</summary>
+        <div style="margin-top: 0.75rem; line-height: 1.6;">
+          <p><strong>Responsable:</strong> CAS'LEY — Asesoría Jurídica Profesional, con domicilio en Calle Novena #252,
+            Fraccionamiento C.D. San Quintín, Baja California, México.</p>
+          <p><strong>Datos que se recaban:</strong> nombre, teléfono, correo electrónico y la información que el titular
+            proporcione voluntariamente al solicitar una consulta o contratar un servicio jurídico.</p>
+          <p><strong>Finalidades:</strong> atender consultas, prestar y dar seguimiento a los servicios jurídicos
+            contratados, elaborar expedientes y cumplir obligaciones legales, fiscales y deontológicas.</p>
+          <p><strong>Transferencias:</strong> no se transferirán datos personales a terceros sin el consentimiento del
+            titular, salvo las excepciones previstas en la Ley Federal de Protección de Datos Personales en Posesión de
+            los Particulares.</p>
+          <p><strong>Derechos ARCO:</strong> el titular puede ejercer sus derechos de acceso, rectificación, cancelación y
+            oposición, así como revocar su consentimiento, presentando solicitud en el domicilio señalado o comunicándose
+            al teléfono +52 (616) 107-0301.</p>
+          <p><strong>Cambios al aviso:</strong> cualquier modificación se publicará en esta misma sección.</p>
+          <p style="font-size: 0.8125rem; color: var(--v1-stone-400);">Última actualización: 21 de octubre de 2026.</p>
+        </div>
+      </details>
+
+      <div class="footer-bottom">
+        <p style="margin: 0;">
+          &copy; 2026 CAS'LEY — Asesoría Jurídica Profesional. Calle Novena #252, Fracc. C.D. San Quintín, Baja California, México. Todos los derechos reservados.
+        </p>
+      </div>
     </div>
   </footer>
   <script>
-    // Portal interacción básica accesible
-    document.addEventListener('DOMContentLoaded', function() {
-      // Registrar carga limpia de la portada
-      console.log('CAS\'LEY Portal de Plantillas cargado correctamente.');
-    });
+    // Control accesible del menú móvil v1
+    (function initMobileMenu() {
+      var btn = document.getElementById('v1MobileMenuBtn');
+      var menu = document.getElementById('v1MobileMenu');
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      // Cerrar al pulsar Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.focus();
+        }
+      });
+
+      // Cerrar al pulsar un enlace de navegación
+      var links = menu.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      }
+    })();
+    // Control de accesibilidad y foco por teclado v1
+    (function initA11y() {
+      // Garantizar que todos los enlaces con anclas muevan el foco al objetivo
+      var anchorLinks = document.querySelectorAll('a[href^="#"]');
+      for (var i = 0; i < anchorLinks.length; i++) {
+        anchorLinks[i].addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            var targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              targetEl.setAttribute('tabindex', '-1');
+              targetEl.focus();
+            }
+          }
+        });
+      }
+      console.log('CAS\'LEY v1 (Institucional Sobria) inicializada sin dependencias externas.');
+    })();
   </script>
 </body>
 </html>

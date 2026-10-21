@@ -31,19 +31,30 @@ UPDATE_MODE = "--update" in ARGS or (len(ARGS) == 0)
 
 TARGETS = {
     "root": {
-        "name": "Portada (Índice)",
-        "src_dir": os.path.join(BASE_DIR, "src"),
+        # La raíz publicada es la Variante v1 (decisión de Gerencia, 21-oct-2026):
+        # el antiguo catálogo de plantillas de prueba deja de ser el sitio público.
+        "name": "Sitio público (Variante v1 en la raíz)",
+        "src_dir": os.path.join(BASE_DIR, "v1", "src"),
         "output": os.path.join(BASE_DIR, "index.html"),
-        "sello": os.path.join(BASE_DIR, "src", "EXPECTED"),
+        "sello": os.path.join(BASE_DIR, "v1", "src", "EXPECTED"),
         "manifest": [
             "html/00-head-open.html",
-            "css/10-portada.css",
-            "html/20-head-close-body.html",
-            "html/30-header-hero.html",
-            "html/40-plantillas-comparativa.html",
-            "html/50-footer.html",
-            "html/60-script-open.html",
-            "js/10-portada.js",
+            "css/10-variables.css",
+            "css/20-reset-base.css",
+            "css/30-layout-grid.css",
+            "css/40-components.css",
+            "css/50-responsive.css",
+            "html/10-head-close-nav.html",
+            "html/20-hero.html",
+            "html/30-areas-practica.html",
+            "html/40-confianza-valores.html",
+            "html/50-abogados.html",
+            "html/60-proceso.html",
+            "html/70-contacto-horario.html",
+            "html/80-footer-aviso.html",
+            "html/90-script-open.html",
+            "js/10-menu-movil.js",
+            "js/20-a11y-focus.js",
             "html/99-body-close.html",
         ]
     },

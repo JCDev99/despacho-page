@@ -1,7 +1,7 @@
 {
   "variante": "v1",
-  "url": "http://127.0.0.1:39037/v1/index.html",
-  "ts": "2026-10-21T22:51:58.688Z",
+  "url": "http://127.0.0.1:52399/v1/index.html",
+  "ts": "2026-10-21T22:54:33.333Z",
   "desbordes": {
     "1440px": 0,
     "390px": 0,
@@ -298,8 +298,8 @@
       {
         "tag": "a",
         "texto": "CAS'LEY\nASESORÍA JURÍDICA",
-        "w": 209,
-        "h": 63,
+        "w": 161,
+        "h": 107,
         "pass": true
       },
       {

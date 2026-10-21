@@ -23,6 +23,7 @@ mismos datos produzcan bytes idénticos.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -42,6 +43,7 @@ SITIO = "https://despacho.jc99.dev"
 MIN_RELEVANCIA = 80
 TITULO_SITIO = "CAS'LEY — Asesoría Jurídica Profesional"
 NOTAS_EN_HTML = 12  # las que se sirven sin JS; el explorador pagina de 12 en 12
+VERSION_UI = "0"    # se calcula en main(): hash corto de app.css + app.js
 
 MESES = {
     1: "enero", 2: "febrero", 3: "marzo", 4: "abril", 5: "mayo", 6: "junio",
@@ -214,7 +216,7 @@ def materias_de(notas: list[dict]) -> dict[str, list[dict]]:
 def pagina(titulo: str, descripcion: str, cuerpo: str, extra_head: str = "",
            canonical: str = "", con_js: bool = False, clase: str = "") -> str:
     can = f'\n  <link rel="canonical" href="{html.escape(canonical)}">' if canonical else ""
-    js = '\n  <script src="/novedades/novedades.js" defer></script>' if con_js else ""
+    js = f'\n  <script src="/novedades/novedades.js?v={VERSION_UI}" defer></script>' if con_js else ""
     og = (
         f'\n  <meta property="og:type" content="website">'
         f'\n  <meta property="og:site_name" content="{html.escape(TITULO_SITIO)}">'
@@ -234,7 +236,7 @@ def pagina(titulo: str, descripcion: str, cuerpo: str, extra_head: str = "",
   <meta name="description" content="{html.escape(descripcion)}">
   <meta name="theme-color" content="#070F18">{can}{og}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/novedades/novedades.css">
+  <link rel="stylesheet" href="/novedades/novedades.css?v={VERSION_UI}">
   <link rel="alternate" type="application/rss+xml" title="Novedades oficiales — CAS'LEY" href="/novedades/feed.xml">{extra_head}{js}
 </head>
 <body>
@@ -707,8 +709,14 @@ def main() -> None:
     for f in (css, js):
         if not f.exists():
             sys.exit(f"ERROR: falta el asset {f}")
-    (SALIDA / "novedades.css").write_text(css.read_text(encoding="utf-8"), encoding="utf-8")
-    (SALIDA / "novedades.js").write_text(js.read_text(encoding="utf-8"), encoding="utf-8")
+    texto_css = css.read_text(encoding="utf-8")
+    texto_js = js.read_text(encoding="utf-8")
+    (SALIDA / "novedades.css").write_text(texto_css, encoding="utf-8")
+    (SALIDA / "novedades.js").write_text(texto_js, encoding="utf-8")
+    # Cache-busting: si cambia el CSS o el JS, cambia la URL y ningún navegador
+    # se queda con la versión anterior (nos pasó con el bloque sin-JS).
+    global VERSION_UI
+    VERSION_UI = hashlib.md5((texto_css + texto_js).encode("utf-8")).hexdigest()[:8]
 
     generar_listado(notas, idx, None)
     for m in idx:

@@ -131,4 +131,6 @@ Produce, en `v1/novedades/`:
 
 **Relevancia:** se publica todo el catálogo, sin umbral de entrada. La puntuación se presenta en tres bandas —**Alta** (80+), **Media** (50-79) e **Informativa** (menos de 50)— con tres segmentos, y el número solo aparece en la ficha, dentro del desglose. Por defecto el explorador muestra Alta y Media; la banda Informativa se activa desde el panel. El orden por defecto es cronológico, y sigue existiendo el orden por relevancia.
 
+**Publicación automática:** `publicar-novedades.sh` compara el sello de la nota más reciente por fuente (`/opt/mentor/state/sello-novedades.txt`) y, si cambió, regenera, pasa el arnés y copia al CT103. Se ejecuta cada 15 minutos desde `/etc/cron.d/novedades-publicacion`; sin cambio no genera ni despliega, y si el arnés falla no publica y avisa por Telegram. Registro en `/opt/mentor/state/novedades-publicacion.log`. Para forzar: `./publicar-novedades.sh --forzar`.
+
 **Determinismo:** no se usa la hora actual. El `lastBuildDate` del RSS, el pie y los contadores usan la fecha de la nota más reciente, de modo que dos ejecuciones con los mismos datos producen bytes idénticos.

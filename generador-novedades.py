@@ -47,6 +47,7 @@ BANDAS = ((80, "alta", "Alta"), (50, "media", "Media"), (0, "informativa", "Info
 TITULO_SITIO = "CAS'LEY — Asesoría Jurídica Profesional"
 NOTAS_EN_HTML = 12  # las que se sirven sin JS; el explorador pagina de 12 en 12
 VERSION_UI = "0"    # se calcula en main(): hash corto de app.css + app.js
+VERSION_DATOS = "0" # se calcula en main(): hash corto del catálogo publicado
 
 MESES = {
     1: "enero", 2: "febrero", 3: "marzo", 4: "abril", 5: "mayo", 6: "junio",
@@ -298,7 +299,8 @@ def pagina(titulo: str, descripcion: str, cuerpo: str, extra_head: str = "",
   <script>document.documentElement.classList.add('js');</script>
   <title>{html.escape(titulo)}</title>
   <meta name="description" content="{html.escape(descripcion)}">
-  <meta name="theme-color" content="#070F18">{can}{og}
+  <meta name="theme-color" content="#070F18">
+  <meta name="novedades-version" content="{VERSION_DATOS}">{can}{og}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/novedades/novedades.css?v={VERSION_UI}">
   <link rel="alternate" type="application/rss+xml" title="Novedades oficiales — CAS'LEY" href="/novedades/feed.xml">{extra_head}{js}
@@ -798,6 +800,13 @@ def main() -> None:
         sys.exit("ERROR: no hay notas que publicar")
 
     idx = materias_de(notas)
+
+    # Versión del catálogo: cambia si cambia cualquier nota publicada. Se usa
+    # para que el navegador no reutilice un datos.json anterior tras publicar.
+    global VERSION_DATOS
+    VERSION_DATOS = hashlib.md5(
+        "|".join(f"{n.get('clave')}:{n.get('fecha')}:{n.get('relevancia')}" for n in notas).encode("utf-8")
+    ).hexdigest()[:8]
     SALIDA.mkdir(parents=True, exist_ok=True)
 
     css = SRC_UI / "app.css"

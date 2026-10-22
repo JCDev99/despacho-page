@@ -117,7 +117,8 @@
   }
 
   function tarjeta(n, q) {
-    const esNuevo = MAXFECHA && n.fecha >= restarDias(MAXFECHA, 2);
+    // "Nuevo" = pertenece a la última edición publicada, no a los últimos días.
+    const esNuevo = MAXFECHA && n.fecha === MAXFECHA;
     const ficha = n.ficha || n.clave;
     const [bandaClave, bandaEtiqueta] = banda(Number(n.relevancia) || 0);
     const mats = (n.materias || []).slice(0, 3).map(m =>
@@ -388,7 +389,9 @@
     if (!cont) return;
     leerURL();
     try {
-      const r = await fetch('/novedades/datos.json', { cache: 'no-cache' });
+      const version = document.querySelector('meta[name="novedades-version"]');
+      const v = version ? version.content : '';
+      const r = await fetch('/novedades/datos.json' + (v ? '?v=' + encodeURIComponent(v) : ''), { cache: 'no-cache' });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const j = await r.json();
       DATOS = j.notas || []; MATERIAS = j.materias || {}; FUENTES = j.fuentes || {};

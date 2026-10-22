@@ -192,6 +192,16 @@ input::placeholder,textarea::placeholder{color:var(--stone-500);opacity:1}
 .datos div strong{color:var(--stone-200);font-weight:600;font-size:.92rem}
 .datos .materias{margin:0}
 .cuerpo-ficha{color:var(--stone-300);font-size:1rem}
+.detalle-rel{border:1px solid var(--line);border-radius:var(--radio);padding:.8rem 1rem;margin:0 0 1.6rem;background:var(--navy-900);font-size:.88rem}
+.detalle-rel summary{cursor:pointer;color:var(--stone-200);font-weight:600;min-height:32px;display:flex;align-items:center;gap:.5rem;list-style:none}
+.detalle-rel summary::-webkit-details-marker{display:none}
+.detalle-rel summary::after{content:"+";margin-left:auto;color:var(--gold-base);font-size:1.1rem;line-height:1}
+.detalle-rel[open] summary::after{content:"−"}
+.detalle-rel summary:hover{color:var(--gold-light)}
+.detalle-rel ul{list-style:none;margin:.7rem 0 0;padding:0;display:grid;gap:.25rem}
+.detalle-rel li{display:flex;justify-content:space-between;gap:1rem;color:var(--stone-400);padding:.2rem 0;border-top:1px solid var(--line)}
+.detalle-rel li:first-child{border-top:0}
+.detalle-rel .pts{color:var(--gold-light);font-variant-numeric:tabular-nums;white-space:nowrap}
 .acciones-ficha{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0 0}
 .nota-legal{border-left:2px solid var(--gold-dark);padding:.8rem 1rem;margin:2rem 0 0;color:var(--stone-400);font-size:.85rem;background:rgba(197,160,89,.05)}
 .pager{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.88rem}

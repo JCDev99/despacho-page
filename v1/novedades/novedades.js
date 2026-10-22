@@ -86,6 +86,11 @@
   }
 
   /* ── Render ── */
+  function desgloseTexto(n) {
+    const det = n.relevancia_detalle || {};
+    return (det.factores || []).map(f => `${f.motivo} ${f.puntos >= 0 ? '+' : ''}${f.puntos}`).join(' · ');
+  }
+
   function tarjeta(n, q) {
     const esNuevo = MAXFECHA && n.fecha >= restarDias(MAXFECHA, 2);
     const mats = (n.materias || []).slice(0, 3).map(m =>
@@ -107,7 +112,7 @@
         <a class="cta" href="/novedades/${esc(n.clave)}.html">Leer ficha <span aria-hidden="true">→</span></a>
         <a class="fuente-ext" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">Texto oficial ↗</a>
         ${pdf}
-        <span class="rel" title="Relevancia estimada ${esc(n.relevancia)} de 100"><span class="rel__lbl">Relevancia</span>${esc(n.relevancia)}<i style="--v:${Math.max(0, Math.min(100, Number(n.relevancia) || 0))}%"></i></span>
+        <span class="rel" title="Relevancia estimada ${esc(n.relevancia)} de 100${desgloseTexto(n) ? ': ' + esc(desgloseTexto(n)) : ''}"><span class="rel__lbl">Relevancia</span>${esc(n.relevancia)}<i style="--v:${Math.max(0, Math.min(100, Number(n.relevancia) || 0))}%"></i></span>
       </div>
     </article>`;
   }

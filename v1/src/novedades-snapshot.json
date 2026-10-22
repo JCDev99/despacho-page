@@ -12,9 +12,30 @@
   "titulo": "ACUERDO por el que se establecen acciones de simplificación y mejora administrativa de la Comisión Nacional Antimonopolio.",
   "resumen": "Se ordena eliminar el registro en el Portal Ciudadano Único de Trámites y Servicios, de las siguientes homoclaves, en virtud que su naturaleza jurídica obedece a actos procesales dentro del Procedimiento de Notificación de Concentraciones y de los Procedimientos para la Emisión",
   "materias": [
-   "mercantil"
+   "competencia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: COMISION NACIONAL ANTIMONOPOLIO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: competencia",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801706&fecha=21/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801706&fecha=21/10/2026",
   "texto_len": 13362
@@ -35,6 +56,27 @@
    "mercantil"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: INSTITUTO MEXICANO DE LA PROPIEDAD INDUSTRIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801704&fecha=21/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801704&fecha=21/10/2026",
   "texto_len": 77861
@@ -55,6 +97,31 @@
    "telecom"
   ],
   "relevancia": 80,
+  "relevancia_detalle": {
+   "puntuacion": 80,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor relevante: COMISION REGULADORA DE TELECOMUNICACIONES",
+     "puntos": 10
+    },
+    {
+     "motivo": "Materia relevante: telecom",
+     "puntos": 5
+    },
+    {
+     "motivo": "Señal de reforma normativa en el título",
+     "puntos": 5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801702&fecha=21/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801702&fecha=21/10/2026",
   "texto_len": 53682
@@ -75,6 +142,27 @@
    "fiscal"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: CRITERIO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801540&fecha=20/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801540&fecha=20/10/2026",
   "texto_len": 23039
@@ -95,6 +183,27 @@
    "fiscal"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801539&fecha=20/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801539&fecha=20/10/2026",
   "texto_len": 5203
@@ -115,6 +224,31 @@
    "mercantil"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE ECONOMIA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    },
+    {
+     "motivo": "Señal de reforma normativa en el título",
+     "puntos": 5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801479&fecha=19/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801479&fecha=19/10/2026",
   "texto_len": 50626
@@ -136,6 +270,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801459&fecha=16/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801459&fecha=16/10/2026",
   "texto_len": 2918
@@ -157,6 +312,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801458&fecha=16/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801458&fecha=16/10/2026",
   "texto_len": 4972
@@ -178,6 +354,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801457&fecha=16/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801457&fecha=16/10/2026",
   "texto_len": 3434
@@ -198,6 +395,27 @@
    "mercantil"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: INSTITUTO MEXICANO DE LA PROPIEDAD INDUSTRIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801259&fecha=15/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801259&fecha=15/10/2026",
   "texto_len": 4012
@@ -218,6 +436,27 @@
    "mercantil"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE ECONOMIA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801249&fecha=15/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801249&fecha=15/10/2026",
   "texto_len": 22975
@@ -238,6 +477,23 @@
    "administrativo"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801238&fecha=14/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801238&fecha=14/10/2026",
   "texto_len": 18748
@@ -256,6 +512,23 @@
   "resumen": "El presente decreto es de orden público, de interés general y de observancia obligatoria en todo el territorio nacional, tiene por objeto establecer las medidas y mecanismos que las Plataformas digitales deben implementar para garantizar entornos digitales seguros para niñas,",
   "materias": [],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5801237&fecha=14/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5801237&fecha=14/10/2026",
   "texto_len": 16281
@@ -276,6 +549,27 @@
    "fiscal"
   ],
   "relevancia": 100,
+  "relevancia_detalle": {
+   "puntuacion": 100,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800978&fecha=13/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800978&fecha=13/10/2026",
   "texto_len": 9892
@@ -296,6 +590,27 @@
    "fiscal"
   ],
   "relevancia": 100,
+  "relevancia_detalle": {
+   "puntuacion": 100,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800977&fecha=13/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800977&fecha=13/10/2026",
   "texto_len": 10919
@@ -316,6 +631,27 @@
    "salud"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: NOM",
+     "puntos": 20
+    },
+    {
+     "motivo": "Emisor relevante: SECRETARIA DE SALUD",
+     "puntos": 10
+    },
+    {
+     "motivo": "Materia relevante: salud",
+     "puntos": 5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800942&fecha=12/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800942&fecha=12/10/2026",
   "texto_len": 136974
@@ -336,6 +672,27 @@
    "mercantil"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE ECONOMIA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800940&fecha=12/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800940&fecha=12/10/2026",
   "texto_len": 333374
@@ -356,6 +713,27 @@
    "fiscal"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800920&fecha=9/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800920&fecha=9/10/2026",
   "texto_len": 9015
@@ -377,6 +755,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800919&fecha=9/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800919&fecha=9/10/2026",
   "texto_len": 2917
@@ -398,6 +797,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800918&fecha=9/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800918&fecha=9/10/2026",
   "texto_len": 4971
@@ -419,6 +839,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800917&fecha=9/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800917&fecha=9/10/2026",
   "texto_len": 3433
@@ -439,6 +880,27 @@
    "amparo_constitucional"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: ORGANO DE ADMINISTRACION JUDICIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: amparo_constitucional",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800744&fecha=8/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800744&fecha=8/10/2026",
   "texto_len": 15027
@@ -459,6 +921,27 @@
    "mercantil"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE ECONOMIA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800733&fecha=8/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800733&fecha=8/10/2026",
   "texto_len": 18264
@@ -480,6 +963,27 @@
    "amparo_constitucional"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: amparo_constitucional, fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800731&fecha=8/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800731&fecha=8/10/2026",
   "texto_len": 11218
@@ -500,6 +1004,27 @@
    "fiscal"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800730&fecha=8/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800730&fecha=8/10/2026",
   "texto_len": 25598
@@ -520,6 +1045,27 @@
    "fiscal"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: LINEAMIENTOS",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800619&fecha=7/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800619&fecha=7/10/2026",
   "texto_len": 295526
@@ -538,6 +1084,23 @@
   "resumen": "Se reforman los artículos 82, párrafo primero y su fracción I, párrafo primero; 116, párrafo segundo, fracción I, párrafo quinto, y 122, Apartado A, fracción III, párrafo segundo, y se adicionan a los artículos 82, fracción I, los párrafos segundo y tercero; 116, párrafo",
   "materias": [],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800617&fecha=7/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800617&fecha=7/10/2026",
   "texto_len": 6678
@@ -558,6 +1121,27 @@
    "mercantil"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: INSTITUTO MEXICANO DE LA PROPIEDAD INDUSTRIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800403&fecha=6/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800403&fecha=6/10/2026",
   "texto_len": 9154
@@ -578,6 +1162,23 @@
    "administrativo"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800377&fecha=5/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800377&fecha=5/10/2026",
   "texto_len": 19737
@@ -598,6 +1199,27 @@
    "fiscal"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800260&fecha=2/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800260&fecha=2/10/2026",
   "texto_len": 3744
@@ -619,6 +1241,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800259&fecha=2/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800259&fecha=2/10/2026",
   "texto_len": 2918
@@ -640,6 +1283,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800258&fecha=2/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800258&fecha=2/10/2026",
   "texto_len": 4972
@@ -661,6 +1325,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800257&fecha=2/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800257&fecha=2/10/2026",
   "texto_len": 3434
@@ -681,6 +1366,27 @@
    "fiscal"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5800157&fecha=1/10/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5800157&fecha=1/10/2026",
   "texto_len": 12653
@@ -701,6 +1407,27 @@
    "mercantil"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: INSTITUTO MEXICANO DE LA PROPIEDAD INDUSTRIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799791&fecha=29/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799791&fecha=29/09/2026",
   "texto_len": 2798
@@ -721,6 +1448,23 @@
    "administrativo"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799779&fecha=29/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799779&fecha=29/09/2026",
   "texto_len": 25035
@@ -742,6 +1486,27 @@
    "salud"
   ],
   "relevancia": 80,
+  "relevancia_detalle": {
+   "puntuacion": 80,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor relevante: SECRETARIA DE SALUD",
+     "puntos": 10
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799777&fecha=28/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799777&fecha=28/09/2026",
   "texto_len": 84120
@@ -763,6 +1528,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799681&fecha=25/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799681&fecha=25/09/2026",
   "texto_len": 2934
@@ -784,6 +1570,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799680&fecha=25/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799680&fecha=25/09/2026",
   "texto_len": 4989
@@ -805,6 +1612,27 @@
    "energia"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799679&fecha=25/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799679&fecha=25/09/2026",
   "texto_len": 3507
@@ -825,6 +1653,27 @@
    "fiscal"
   ],
   "relevancia": 100,
+  "relevancia_detalle": {
+   "puntuacion": 100,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799677&fecha=25/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799677&fecha=25/09/2026",
   "texto_len": 5173
@@ -845,6 +1694,27 @@
    "fiscal"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799445&fecha=24/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799445&fecha=24/09/2026",
   "texto_len": 136302
@@ -865,6 +1735,31 @@
    "fiscal"
   ],
   "relevancia": 95,
+  "relevancia_detalle": {
+   "puntuacion": 95,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal",
+     "puntos": 10
+    },
+    {
+     "motivo": "Señal de reforma normativa en el título",
+     "puntos": 5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799444&fecha=24/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799444&fecha=24/09/2026",
   "texto_len": 15104
@@ -886,6 +1781,27 @@
    "salud"
   ],
   "relevancia": 95,
+  "relevancia_detalle": {
+   "puntuacion": 95,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia relevante: salud",
+     "puntos": 5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799438&fecha=24/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799438&fecha=24/09/2026",
   "texto_len": 17262
@@ -906,6 +1822,35 @@
    "mercantil"
   ],
   "relevancia": 100,
+  "relevancia_detalle": {
+   "puntuacion": 100,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: DECRETO",
+     "puntos": 25
+    },
+    {
+     "motivo": "Emisor de alto impacto: PRESIDENCIA DE LA REPUBLICA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    },
+    {
+     "motivo": "Señal de reforma normativa en el título",
+     "puntos": 5
+    },
+    {
+     "motivo": "Ajuste al rango 0-100",
+     "puntos": -5
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799437&fecha=24/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799437&fecha=24/09/2026",
   "texto_len": 9595
@@ -926,6 +1871,27 @@
    "amparo_constitucional"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: ORGANO DE ADMINISTRACION JUDICIAL",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: amparo_constitucional",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799373&fecha=23/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799373&fecha=23/09/2026",
   "texto_len": 29683
@@ -946,6 +1912,27 @@
    "mercantil"
   ],
   "relevancia": 85,
+  "relevancia_detalle": {
+   "puntuacion": 85,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: ACUERDO",
+     "puntos": 10
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE ECONOMIA",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799245&fecha=22/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799245&fecha=22/09/2026",
   "texto_len": 13099
@@ -967,6 +1954,27 @@
    "mercantil"
   ],
   "relevancia": 90,
+  "relevancia_detalle": {
+   "puntuacion": 90,
+   "factores": [
+    {
+     "motivo": "Base editorial",
+     "puntos": 50
+    },
+    {
+     "motivo": "Tipo de documento: RESOLUCION",
+     "puntos": 15
+    },
+    {
+     "motivo": "Emisor de alto impacto: SECRETARIA DE HACIENDA Y CREDITO PUBLICO",
+     "puntos": 15
+    },
+    {
+     "motivo": "Materia de alto interés: fiscal, mercantil",
+     "puntos": 10
+    }
+   ]
+  },
   "url": "https://dof.gob.mx/nota_detalle.php?codigo=5799243&fecha=22/09/2026",
   "pdf_url": "https://dof.gob.mx/nota_detalle.php?codigo=5799243&fecha=22/09/2026",
   "texto_len": 232605

@@ -68,6 +68,7 @@ TIPO_LEGIBLE = {
 }
 
 ETIQUETAS_MATERIA = {
+    "competencia": "Competencia económica",
     "energia": "Energía",
     "amparo_constitucional": "Amparo constitucional",
     "telecom": "Telecomunicaciones",
@@ -143,6 +144,21 @@ def emisor_legible(t: str) -> str:
         else:
             salida.append(limpio.capitalize())
     return " ".join(salida)
+
+
+def motivo_legible(motivo: str) -> str:
+    """Aplica la misma normalización de emisores al texto del factor."""
+    for prefijo in ("Emisor de alto impacto: ", "Emisor relevante: "):
+        if motivo.startswith(prefijo):
+            return prefijo + emisor_legible(motivo[len(prefijo):])
+    return motivo
+
+
+def desglose_texto(n: dict) -> str:
+    """Resume los factores de relevancia: 'Base editorial +50 · Tipo… +10'."""
+    det = n.get("relevancia_detalle") or {}
+    factores = det.get("factores") or []
+    return " · ".join(f"{motivo_legible(f.get('motivo', ''))} {int(f.get('puntos', 0)):+d}" for f in factores)
 
 
 def fecha_rfc822(iso: str | None) -> str:
@@ -276,6 +292,8 @@ def tarjeta(n: dict, q: str = "") -> str:
     pdf = n.get("pdf_url") or ""
     fuente_txt = html.escape((n.get("fuente") or "DOF"))
     rel = int(n.get("relevancia") or 0)
+    desglose = desglose_texto(n)
+    rel_title = f"Relevancia estimada {rel} de 100" + (f": {desglose}" if desglose else "")
     ext = f'<a class="fuente-ext" href="{html.escape(fuente)}" rel="noopener nofollow" target="_blank">Texto oficial ↗</a>' if fuente else ""
     ext_pdf = f'<a class="fuente-ext" href="{html.escape(pdf)}" rel="noopener nofollow" target="_blank">PDF ↗</a>' if pdf and pdf != fuente else ""
     return f"""        <article class="nota">
@@ -292,7 +310,7 @@ def tarjeta(n: dict, q: str = "") -> str:
             <a class="cta" href="/novedades/{cod}.html">Leer ficha <span aria-hidden="true">→</span></a>
             {ext}
             {ext_pdf}
-            <span class="rel" title="Relevancia estimada {rel} de 100"><span class="rel__lbl">Relevancia</span>{rel}<i style="--v:{max(0, min(100, rel))}%"></i></span>
+            <span class="rel" title="{html.escape(rel_title)}"><span class="rel__lbl">Relevancia</span>{rel}<i style="--v:{max(0, min(100, rel))}%"></i></span>
           </div>
         </article>
 """
@@ -534,6 +552,20 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
               f'{html.escape((siguiente.get("titulo") or "")[:70])}…</span> <span aria-hidden="true">→</span></a>') if siguiente else "<span></span>"
     pager += "</div>"
 
+    det_rel = n.get("relevancia_detalle") or {}
+    filas_rel = (det_rel.get("factores") or [])
+    bloques_rel = "".join(
+        f'<li><span>{html.escape(motivo_legible(str(f.get("motivo", ""))))}</span><span class="pts">{int(f.get("puntos", 0)):+d}</span></li>'
+        for f in filas_rel
+    )
+    detalle_rel = f"""      <details class="detalle-rel">
+        <summary>¿Cómo se calcula la relevancia de {n.get('relevancia', '—')}/100?</summary>
+        <p class="nota-fuente">Estimación automática del servicio editorial (tipo, emisor, materia y señales del título).
+          No es una valoración jurídica ni una medida de impacto real.</p>
+        <ul>{bloques_rel}</ul>
+      </details>
+""" if filas_rel else ""
+
     ld = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -573,6 +605,7 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
         <div><span>Relevancia</span><strong>{n.get('relevancia', '—')} / 100</strong></div>
         <div><span>Materias</span><div class="materias">{chips_m or '—'}</div></div>
       </div>
+{detalle_rel}
       <p class="cuerpo-ficha">Esta ficha resume de forma extractiva el contenido publicado en {html.escape(fuente_nombre)}.
         El texto íntegro, sus anexos y cualquier fe de erratas están en la fuente oficial enlazada arriba.</p>
       <p class="nota-legal">Resumen generado automáticamente. Consulte siempre el texto oficial antes de actuar:
@@ -611,6 +644,7 @@ def generar_datos(notas: list[dict], idx: dict[str, list[dict]]) -> None:
                 "resumen": (n.get("resumen") or "").strip(),
                 "materias": n.get("materias") or [],
                 "relevancia": n.get("relevancia", 0),
+                "relevancia_detalle": n.get("relevancia_detalle") or {},
                 "url": n.get("url") or "",
                 "pdf_url": n.get("pdf_url") or "",
             }

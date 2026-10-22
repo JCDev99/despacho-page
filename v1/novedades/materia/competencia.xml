@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Competencia económica — CAS'LEY</title>
+    <link>https://despacho.jc99.dev/novedades/materia/competencia.html</link>
+    <description>Publicaciones oficiales seleccionadas por relevancia jurídica.</description>
+    <language>es-MX</language>
+    <lastBuildDate>Wed, 21 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <atom:link href="https://despacho.jc99.dev/novedades/materia/competencia.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>ACUERDO por el que se establecen acciones de simplificación y mejora administrativa de la Comisión Nacional Antimonopolio.</title>
+      <link>https://despacho.jc99.dev/novedades/5801706.html</link>
+      <guid isPermaLink="true">https://despacho.jc99.dev/novedades/5801706.html</guid>
+      <pubDate>Wed, 21 Oct 2026 08:00:00 +0000</pubDate>
+      <category>Acuerdo</category>
+      <description>Se ordena eliminar el registro en el Portal Ciudadano Único de Trámites y Servicios, de las siguientes homoclaves, en virtud que su naturaleza jurídica obedece a actos procesales dentro del Procedimiento de Notificación de Concentraciones y de los Procedimientos para la Emisión</description>
+    </item>
+  </channel>
+</rss>

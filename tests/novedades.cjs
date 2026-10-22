@@ -33,6 +33,10 @@ const rgbHex = s => {
 (async () => {
   const datos = JSON.parse(fs.readFileSync(path.join(RAIZ, 'v1/novedades/datos.json'), 'utf8'));
   const total = datos.notas.length;
+  // Por defecto el explorador muestra las bandas alta y media; la informativa
+  // se publica pero queda desmarcada.
+  const visibles = datos.notas.filter(n => n.relevancia_banda === 'alta' || n.relevancia_banda === 'media');
+  const totalDefecto = visibles.length;
   const fallos = [];
   const b = await chromium.launch();
 
@@ -120,7 +124,7 @@ const rgbHex = s => {
     ['fuente', 'DOF', n => n.fuente === 'DOF'],
   ];
   for (const [faceta, valor, pred] of casos) {
-    const esperado = datos.notas.filter(pred).length;
+    const esperado = visibles.filter(pred).length;
     await p.check(`input[data-faceta="${faceta}"][data-valor="${valor}"]`);
     await p.waitForTimeout(150);
     const cuenta = Number((await p.textContent('#cuenta')).replace(/\D+/g, ''));
@@ -134,10 +138,24 @@ const rgbHex = s => {
   await p.fill('#q', 'hacienda');
   await p.waitForTimeout(300);
   const cuentaQ = Number((await p.textContent('#cuenta')).replace(/\D+/g, ''));
-  const esperadoQ = datos.notas.filter(n => /hacienda/i.test([n.titulo, n.resumen, n.emisor, n.tipo].join(' '))).length;
+  const esperadoQ = visibles.filter(n => /hacienda/i.test([n.titulo, n.resumen, n.emisor, n.tipo].join(' '))).length;
   if (cuentaQ !== esperadoQ) fallos.push(`búsqueda "hacienda": ${cuentaQ} vs ${esperadoQ}`);
   if (!p.url().includes('q=hacienda')) fallos.push('la búsqueda no queda en la URL');
   console.log(`  búsqueda hacienda: ${cuentaQ} (esperado ${esperadoQ}) · url con estado: ${p.url().includes('q=hacienda')}`);
+
+  // 5b. Bandas: la informativa se publica pero está desmarcada por defecto
+  await p.fill('#q', '');
+  await p.waitForTimeout(250);
+  const cuentaDefecto = Number((await p.textContent('#cuenta')).replace(/\D+/g, ''));
+  if (cuentaDefecto !== totalDefecto) fallos.push(`total por defecto ${cuentaDefecto} vs ${totalDefecto} (alta+media)`);
+  await p.check('input[data-banda="informativa"]');
+  await p.waitForTimeout(200);
+  const cuentaTodas = Number((await p.textContent('#cuenta')).replace(/\D+/g, ''));
+  if (cuentaTodas !== total) fallos.push(`con informativa ${cuentaTodas} vs ${total} totales`);
+  if (!p.url().includes('bandas=')) fallos.push('el filtro de bandas no queda en la URL');
+  console.log(`  bandas: ${cuentaDefecto} por defecto (alta+media) · ${cuentaTodas} con informativa · url con estado: ${p.url().includes('bandas=')}`);
+  await p.uncheck('input[data-banda="informativa"]');
+  await p.waitForTimeout(150);
 
   // 6. Sin JavaScript se sirve contenido real
   const ctx = await b.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 900 } });

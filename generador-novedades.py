@@ -40,7 +40,10 @@ SRC_UI = BASE / "v1" / "src" / "novedades"
 SNAPSHOT = BASE / "v1" / "src" / "novedades-snapshot.json"
 API = "https://dof.jc99.dev/v1/novedades"
 SITIO = "https://despacho.jc99.dev"
-MIN_RELEVANCIA = 80
+# El umbral deja de ser puerta de entrada: se publica todo y la relevancia
+# ordena y permite filtrar. "Destacada" es la banda alta (>= 80).
+UMBRAL_DESTACADA = 80
+BANDAS = ((80, "alta", "Alta"), (50, "media", "Media"), (0, "informativa", "Informativa"))
 TITULO_SITIO = "CAS'LEY — Asesoría Jurídica Profesional"
 NOTAS_EN_HTML = 12  # las que se sirven sin JS; el explorador pagina de 12 en 12
 VERSION_UI = "0"    # se calcula en main(): hash corto de app.css + app.js
@@ -54,16 +57,17 @@ MESES = {
 # notas; las demás se anuncian como pendientes de ingesta, sin inventar datos.
 FUENTES = {
     "DOF": {"nombre": "Diario Oficial de la Federación", "corto": "DOF", "url": "https://www.dof.gob.mx/"},
-    "POBC": {"nombre": "Periódico Oficial del Estado de Baja California", "corto": "POBC",
-             "url": "https://www.bajacalifornia.gob.mx/periodicooficial"},
+    "POBBC": {"nombre": "Periódico Oficial del Estado de Baja California", "corto": "POBC",
+              "url": "https://www.bajacalifornia.gob.mx/periodicooficial"},
     "SAT": {"nombre": "Servicio de Administración Tributaria", "corto": "SAT", "url": "https://www.sat.gob.mx/"},
 }
-FUENTES_PREVISTAS = ("POBC", "SAT")
+FUENTES_PREVISTAS = ("SAT",)
 
 # Tipos tal como los publica el DOF, normalizados para lectura.
 TIPO_LEGIBLE = {
     "RESOLUCION": "Resolución", "ACUERDO": "Acuerdo", "DECRETO": "Decreto",
     "LINEAMIENTOS": "Lineamientos", "CRITERIO": "Criterio", "NOM": "Norma oficial",
+    "LICITACION": "Licitación", "CONSTANCIA": "Constancia", "EDICION_COMPLETA": "Edición completa",
     "AVISO": "Aviso", "CIRCULAR": "Circular", "CONVOCATORIA": "Convocatoria",
 }
 
@@ -89,8 +93,16 @@ LEGIBLE = {
     "EDUCACION": "Educación", "POBLACION": "Población", "MIGRACION": "Migración",
     "INFORMACION": "Información", "NUTRICION": "Nutrición", "PREVISION": "Previsión",
 }
-EDICION_LEGIBLE = {"MAT": "Matutina", "VES": "Vespertina", "EXT": "Extraordinaria", "ESP": "Especial"}
+EDICION_LEGIBLE = {"MAT": "Matutina", "VES": "Vespertina", "EXT": "Extraordinaria", "ESP": "Especial",
+                   "POBBC": "Periódico Oficial"}
 MENORES = {"DE", "DEL", "LA", "EL", "LOS", "LAS", "Y", "E", "EN", "PARA", "POR", "CON", "A", "AL", "U"}
+# Siglas que se conservan en mayúsculas. La heurística por longitud ("BAJA" tiene
+# cuatro letras) convertía palabras comunes en siglas.
+SIGLAS = {
+    "SAT", "IMSS", "ISSSTE", "SHCP", "CFE", "CRE", "IFT", "INE", "TEPJF", "SCJN", "TFJA",
+    "COFECE", "IMPI", "COFEPRIS", "SEGOB", "SENER", "SEMARNAT", "SADER", "SEDATU", "SEP",
+    "INM", "COMAR", "INEGI", "PEMEX", "BANXICO", "CNBV", "PRODECON", "DOF", "POBBC", "NOM",
+}
 
 
 def plural(n: int, singular: str, plural_: str) -> str:
@@ -125,6 +137,28 @@ def fecha_corta(iso: str | None) -> str:
     return f"{d.day} {MESES[d.month][:3]} {d.year}"
 
 
+def segmentos_banda(banda: str) -> str:
+    """Tres segmentos: Alta 3/3, Media 2/3, Informativa 1/3."""
+    activos = {"alta": 3, "media": 2, "informativa": 1}.get(banda, 1)
+    return "".join(f'<b class="{"on" if i < activos else ""}"></b>' for i in range(3))
+
+
+def resumen_mostrado(texto: str) -> str:
+    """Añade puntos suspensivos si el resumen llega cortado desde la fuente."""
+    t = (texto or "").strip()
+    if t and t[-1] not in ".!?…":
+        t += "…"
+    return t
+
+
+def banda_relevancia(rel: int) -> tuple[str, str]:
+    """Devuelve (clave, etiqueta) de la banda: alta | media | informativa."""
+    for umbral, clave, etiqueta in BANDAS:
+        if rel >= umbral:
+            return clave, etiqueta
+    return "informativa", "Informativa"
+
+
 def etiqueta_materia(m: str) -> str:
     return ETIQUETAS_MATERIA.get(m) or m.replace("_", " ").capitalize()
 
@@ -139,8 +173,8 @@ def emisor_legible(t: str) -> str:
             salida.append(LEGIBLE[limpio])
         elif limpio.upper() in MENORES and i > 0:
             salida.append(limpio.lower())
-        elif len(limpio) <= 4 and limpio.isupper():
-            salida.append(limpio)  # siglas: SAT, IMSS, SHCP, CNDH
+        elif limpio.upper() in SIGLAS:
+            salida.append(limpio.upper())
         else:
             salida.append(limpio.capitalize())
     return " ".join(salida)
@@ -172,27 +206,40 @@ def fecha_rfc822(iso: str | None) -> str:
 
 
 def descargar(limite: int | None) -> list[dict]:
+    """Descarga el catálogo completo, fuente por fuente.
+
+    Se consulta cada fuente por separado para no depender del balanceo DOF/POBBC
+    del servicio al paginar con cursor (evita duplicados y saltos entre fuentes).
+    """
     notas: list[dict] = []
-    cursor = None
-    for _ in range(10):
-        q = {"min_relevancia": MIN_RELEVANCIA, "limit": 100}
-        if cursor:
-            q["cursor"] = cursor
-        url = f"{API}?{urllib.parse.urlencode(q)}"
-        peticion = urllib.request.Request(
-            url,
-            headers={
-                "User-Agent": "CASLEYWeb/1.0 (build estatico; contacto jc99.dev)",
-                "Accept": "application/json",
-            },
-        )
-        with urllib.request.urlopen(peticion, timeout=30) as r:
-            datos = json.loads(r.read().decode())
-        items = datos.get("items", [])
-        notas.extend(items)
-        cursor = datos.get("next_cursor")
-        if not cursor or not items:
-            break
+    vistos: set[tuple[str, str]] = set()
+    for fuente in ("dof", "pobbc"):
+        cursor = None
+        for _ in range(20):
+            q = {"fuente": fuente, "limit": 100}
+            if cursor:
+                q["cursor"] = cursor
+            url = f"{API}?{urllib.parse.urlencode(q)}"
+            peticion = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": "CASLEYWeb/1.0 (build estatico; contacto jc99.dev)",
+                    "Accept": "application/json",
+                },
+            )
+            with urllib.request.urlopen(peticion, timeout=30) as r:
+                datos = json.loads(r.read().decode())
+            items = datos.get("items", [])
+            for it in items:
+                clave = (it.get("fuente") or "DOF", str(it.get("clave")))
+                if clave not in vistos:
+                    vistos.add(clave)
+                    notas.append(it)
+            cursor = datos.get("next_cursor")
+            if not cursor or not items:
+                break
+            if limite and len(notas) >= limite:
+                break
         if limite and len(notas) >= limite:
             break
     if limite:
@@ -213,9 +260,10 @@ def cargar(limite: int | None, offline: bool) -> list[dict]:
         n["fuente"] = (n.get("fuente") or "DOF").upper()
         n["emisor"] = n.get("emisor") or n.get("dependencia") or ""
         n["materias"] = n.get("materias") or ["general"]
+        n["ficha"] = slug(str(n.get("clave") or n.get("codigo")))
         tipo = (n.get("tipo") or "").strip()
         n["tipo"] = TIPO_LEGIBLE.get(tipo.upper(), tipo)
-    notas.sort(key=lambda n: (n.get("fecha", ""), n.get("codigo", 0)), reverse=True)
+    notas.sort(key=lambda n: (n.get("fecha", ""), str(n.get("clave") or "")), reverse=True)
     return notas
 
 
@@ -279,10 +327,11 @@ def pagina(titulo: str, descripcion: str, cuerpo: str, extra_head: str = "",
 # ── Piezas del explorador ───────────────────────────────────────────────────
 
 def tarjeta(n: dict, q: str = "") -> str:
-    cod = n.get("codigo") or n.get("clave")
+    ficha = n.get("ficha") or slug(str(n.get("clave")))
     tipo = (n.get("tipo") or "").strip()
     emisor = emisor_legible(n.get("emisor") or "")
-    resumen = (n.get("resumen") or "").strip()
+    resumen = resumen_mostrado(n.get("resumen") or "")
+    titulo = resumen_mostrado((n.get("titulo") or "").strip())
     mats = n.get("materias") or []
     etiquetas = "".join(
         f'<a href="/novedades/materia/{slug(m)}.html">{html.escape(etiqueta_materia(m))}</a>'
@@ -292,6 +341,7 @@ def tarjeta(n: dict, q: str = "") -> str:
     pdf = n.get("pdf_url") or ""
     fuente_txt = html.escape((n.get("fuente") or "DOF"))
     rel = int(n.get("relevancia") or 0)
+    banda_clave, banda_etiqueta = banda_relevancia(rel)
     desglose = desglose_texto(n)
     rel_title = f"Relevancia estimada {rel} de 100" + (f": {desglose}" if desglose else "")
     ext = f'<a class="fuente-ext" href="{html.escape(fuente)}" rel="noopener nofollow" target="_blank">Texto oficial ↗</a>' if fuente else ""
@@ -303,14 +353,14 @@ def tarjeta(n: dict, q: str = "") -> str:
             {f'<div class="materias">{etiquetas}</div>' if etiquetas else ''}
             <time class="nota__fecha" datetime="{html.escape(n.get('fecha') or '')}">{html.escape(fecha_corta(n.get('fecha')))}</time>
           </div>
-          <h3><a href="/novedades/{cod}.html">{html.escape((n.get('titulo') or '').strip())}</a></h3>
+          <h3><a href="/novedades/{ficha}.html">{html.escape(titulo)}</a></h3>
           <p class="nota__emisor">{html.escape(emisor)}</p>
           <p class="nota__resumen">{html.escape(resumen)}</p>
           <div class="nota__pie">
-            <a class="cta" href="/novedades/{cod}.html">Leer ficha <span aria-hidden="true">→</span></a>
+            <a class="cta" href="/novedades/{ficha}.html">Leer ficha <span aria-hidden="true">→</span></a>
             {ext}
             {ext_pdf}
-            <span class="rel" title="{html.escape(rel_title)}"><span class="rel__lbl">Relevancia</span>{rel}<i style="--v:{max(0, min(100, rel))}%"></i></span>
+            <span class="rel rel--{banda_clave}" title="{html.escape(rel_title)}"><span class="rel__lbl">Relevancia</span>{banda_etiqueta}<i class="rel__segs" aria-hidden="true">{segmentos_banda(banda_clave)}</i></span>
           </div>
         </article>
 """
@@ -370,9 +420,9 @@ def panel_filtros(notas: list[dict], idx: dict[str, list[dict]]) -> str:
         for e in emisores
     )
     nota_previstas = (
-        '<p class="nota-fuente">Aún sin ingesta: ' + ", ".join(
+        '<p class="nota-fuente">Fuente prevista, aún sin ingesta: ' + ", ".join(
             f'<abbr title="{html.escape(FUENTES[f]["nombre"])}">{html.escape(f)}</abbr>' for f in previstas
-        ) + '. Aparecerán solas cuando la API entregue sus publicaciones.</p>' if previstas else ""
+        ) + '. Llegará cuando la API entregue sus publicaciones.</p>' if previstas else ""
     )
     return f"""      <aside class="filtros solo-js" id="filtros" aria-label="Filtros de publicaciones">
         <div class="panel-cab">
@@ -382,6 +432,15 @@ def panel_filtros(notas: list[dict], idx: dict[str, list[dict]]) -> str:
 {html_fuentes}{nota_previstas}
 {html_temas}
 {html_tipos}
+        <fieldset class="grupo">
+          <legend>Relevancia</legend>
+          <ul class="opciones">
+            <li><label><input type="checkbox" data-banda="alta" checked><span>Alta</span><span class="n">{sum(1 for n in notas if int(n.get("relevancia") or 0) >= 80)}</span></label></li>
+            <li><label><input type="checkbox" data-banda="media" checked><span>Media</span><span class="n">{sum(1 for n in notas if 50 <= int(n.get("relevancia") or 0) < 80)}</span></label></li>
+            <li><label><input type="checkbox" data-banda="informativa"><span>Informativa</span><span class="n">{sum(1 for n in notas if int(n.get("relevancia") or 0) < 50)}</span></label></li>
+          </ul>
+          <p class="nota-fuente">Las informativas quedan ocultas por defecto; márcalas para ver el catálogo completo.</p>
+        </fieldset>
         <fieldset class="grupo">
           <legend>Fecha de publicación</legend>
           <div class="presets" role="group" aria-label="Atajos de fecha">
@@ -458,8 +517,8 @@ def generar_listado(notas: list[dict], idx: dict[str, list[dict]], materia: str 
     <div class="container">
       <p class="kicker">Observatorio normativo</p>
       <h1>Novedades oficiales</h1>
-      <p class="lede">Publicaciones del Diario Oficial de la Federación con relevancia para despachos y
-        empresas, resumidas en una frase útil y enlazadas a su texto oficial.</p>
+      <p class="lede">Publicaciones del Diario Oficial de la Federación y del Periódico Oficial de Baja
+        California con relevancia para despachos y empresas, resumidas en una frase útil y enlazadas a su texto oficial.</p>
       <p class="hero-datos">
         <span><b>{len(idx)}</b> temas</span>
         <span>Última publicación: <b>{html.escape(fecha_corta(notas[0].get('fecha')))}</b></span>
@@ -525,7 +584,7 @@ def generar_listado(notas: list[dict], idx: dict[str, list[dict]], materia: str 
 
 
 def generar_ficha(n: dict, notas: list[dict]) -> None:
-    cod = n.get("codigo") or n.get("clave")
+    ficha = n.get("ficha") or slug(str(n.get("clave")))
     mats = n.get("materias") or []
     chips_m = "".join(
         f'<a href="/novedades/materia/{slug(m)}.html">{html.escape(etiqueta_materia(m))}</a>' for m in mats
@@ -540,14 +599,14 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
         enlaces.append(f'<a class="btn btn--linea" href="{html.escape(pdf)}" rel="noopener nofollow" target="_blank">PDF ↗</a>')
     enlaces.append('<button type="button" class="btn btn--linea" id="compartir">Compartir</button>')
 
-    i = next((k for k, x in enumerate(notas) if (x.get("codigo") or x.get("clave")) == cod), None)
+    i = next((k for k, x in enumerate(notas) if x.get("ficha") == ficha), None)
     previo = notas[i + 1] if i is not None and i + 1 < len(notas) else None
     siguiente = notas[i - 1] if i is not None and i > 0 else None
     pager = '<div class="pager">'
-    pager += (f'<a class="prev" href="/novedades/{previo.get("codigo") or previo.get("clave")}.html">'
+    pager += (f'<a class="prev" href="/novedades/{previo.get("ficha")}.html">'
               f'<span aria-hidden="true">←</span> <span><span class="pager-lbl">Anterior</span>'
               f'{html.escape((previo.get("titulo") or "")[:70])}…</span></a>') if previo else "<span></span>"
-    pager += (f'<a class="sig" href="/novedades/{siguiente.get("codigo") or siguiente.get("clave")}.html">'
+    pager += (f'<a class="sig" href="/novedades/{siguiente.get("ficha")}.html">'
               f'<span><span class="pager-lbl">Siguiente</span>'
               f'{html.escape((siguiente.get("titulo") or "")[:70])}…</span> <span aria-hidden="true">→</span></a>') if siguiente else "<span></span>"
     pager += "</div>"
@@ -559,7 +618,7 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
         for f in filas_rel
     )
     detalle_rel = f"""      <details class="detalle-rel">
-        <summary>¿Cómo se calcula la relevancia de {n.get('relevancia', '—')}/100?</summary>
+        <summary>¿Por qué se clasifica como relevancia {banda_relevancia(int(n.get('relevancia') or 0))[1].lower()}?</summary>
         <p class="nota-fuente">Estimación automática del servicio editorial (tipo, emisor, materia y señales del título).
           No es una valoración jurídica ni una medida de impacto real.</p>
         <ul>{bloques_rel}</ul>
@@ -576,8 +635,8 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
         "articleSection": n.get("tipo"),
         "author": {"@type": "Organization", "name": n.get("emisor") or n.get("dependencia") or "DOF"},
         "publisher": {"@type": "Organization", "name": TITULO_SITIO},
-        "url": f"{SITIO}/novedades/{cod}.html",
-        "isBasedOn": fuente or f"{SITIO}/novedades/{cod}.html",
+        "url": f"{SITIO}/novedades/{ficha}.html",
+        "isBasedOn": fuente or f"{SITIO}/novedades/{ficha}.html",
         "keywords": ", ".join(mats),
     }
     extra = '\n  <script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>"
@@ -602,7 +661,7 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
         <div><span>Emisor</span><strong>{html.escape(emisor_legible(n.get('emisor') or '') or '—')}</strong></div>
         <div><span>Fecha</span><strong>{html.escape(fecha_larga(n.get('fecha', '')))}</strong></div>
         <div><span>Edición</span><strong>{html.escape(EDICION_LEGIBLE.get((n.get('edicion') or '').upper(), n.get('edicion') or '—'))}</strong></div>
-        <div><span>Relevancia</span><strong>{n.get('relevancia', '—')} / 100</strong></div>
+        <div><span>Relevancia</span><strong>{banda_relevancia(int(n.get('relevancia') or 0))[1]} <span class="rel-num">({n.get('relevancia', '—')}/100)</span></strong></div>
         <div><span>Materias</span><div class="materias">{chips_m or '—'}</div></div>
       </div>
 {detalle_rel}
@@ -614,10 +673,10 @@ def generar_ficha(n: dict, notas: list[dict]) -> None:
     </div>
   </main>
 """
-    destino = SALIDA / f"{cod}.html"
+    destino = SALIDA / f"{ficha}.html"
     destino.write_text(
         pagina(f"{(n.get('titulo') or '').strip()} — CAS'LEY", (n.get("resumen") or "")[:180], cuerpo,
-               extra_head=extra, canonical=f"{SITIO}/novedades/{cod}.html", con_js=True),
+               extra_head=extra, canonical=f"{SITIO}/novedades/{ficha}.html", con_js=True),
         encoding="utf-8",
     )
 
@@ -643,7 +702,10 @@ def generar_datos(notas: list[dict], idx: dict[str, list[dict]]) -> None:
                 "titulo": (n.get("titulo") or "").strip(),
                 "resumen": (n.get("resumen") or "").strip(),
                 "materias": n.get("materias") or [],
+                "ficha": n.get("ficha") or slug(str(n.get("clave"))),
                 "relevancia": n.get("relevancia", 0),
+                "relevancia_banda": banda_relevancia(int(n.get("relevancia") or 0))[0],
+                "relevancia_etiqueta": banda_relevancia(int(n.get("relevancia") or 0))[1],
                 "relevancia_detalle": n.get("relevancia_detalle") or {},
                 "url": n.get("url") or "",
                 "pdf_url": n.get("pdf_url") or "",

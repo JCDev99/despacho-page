@@ -119,7 +119,7 @@ python3 generador-novedades.py --limite 60
 
 Produce, en `v1/novedades/`:
 
-- `index.html`: explorador con filtros de **fuente oficial**, **tema** (multiselección), **tipo de documento**, **emisor**, **rango de fechas** con atajos y **búsqueda de texto** con resaltado. El estado vive en la URL (`?tema=fiscal&desde=…`), de modo que cualquier combinación se puede compartir o recuperar con el botón Atrás.
+- `index.html`: explorador con filtros de **fuente oficial**, **tema** (multiselección), **tipo de documento**, **emisor**, **banda de relevancia**, **rango de fechas** con atajos y **búsqueda de texto** con resaltado. El estado vive en la URL (`?tema=fiscal&bandas=alta&desde=…`), de modo que cualquier combinación se puede compartir o recuperar con el botón Atrás.
 - `datos.json`: índice que consume el filtrado en cliente (`v1/src/novedades/app.js`).
 - `novedades.css` y `novedades.js`: copias de `v1/src/novedades/` (esa carpeta es la fuente editable; no se tocan los ficheros publicados a mano).
 - `<clave>.html`: ficha de cada publicación, con datos, materias, aviso legal, JSON-LD y navegación anterior/siguiente.
@@ -127,6 +127,8 @@ Produce, en `v1/novedades/`:
 - `feed.xml` y `materia/<tema>.xml`: RSS general y por tema.
 - `sitemap.xml` en la raíz del repo, regenerado con las fichas y las páginas de tema.
 
-**Fuentes:** el filtro se construye con las fuentes presentes en los datos (`campo fuente`). Hoy solo hay `DOF`; `POBC` y `SAT` están declaradas en `FUENTES` y aparecerán automáticamente en cuanto la API entregue notas con ese campo, sin tocar el HTML.
+**Fuentes:** el filtro se construye con las fuentes presentes en los datos (`campo fuente`). Hoy publica `DOF` y `POBBC` (Periódico Oficial de Baja California); `SAT` está declarada y aparecerá sola cuando la API entregue notas con ese campo.
+
+**Relevancia:** se publica todo el catálogo, sin umbral de entrada. La puntuación se presenta en tres bandas —**Alta** (80+), **Media** (50-79) e **Informativa** (menos de 50)— con tres segmentos, y el número solo aparece en la ficha, dentro del desglose. Por defecto el explorador muestra Alta y Media; la banda Informativa se activa desde el panel. El orden por defecto es cronológico, y sigue existiendo el orden por relevancia.
 
 **Determinismo:** no se usa la hora actual. El `lastBuildDate` del RSS, el pie y los contadores usan la fecha de la nota más reciente, de modo que dos ejecuciones con los mismos datos producen bytes idénticos.

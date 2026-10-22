@@ -8,7 +8,12 @@
 
   const POR_PAGINA = 12;
   let DATOS = null, MATERIAS = {}, FUENTES = {}, MAXFECHA = '';
-  const estado = { fuente: new Set(), tema: new Set(), tipo: new Set(), emisor: '', desde: '', hasta: '', q: '', orden: 'reciente' };
+  const BANDAS_DEFECTO = ['alta', 'media'];
+  const estado = {
+    fuente: new Set(), tema: new Set(), tipo: new Set(), emisor: '', desde: '', hasta: '',
+    q: '', orden: 'reciente', bandas: new Set(BANDAS_DEFECTO),
+  };
+  const bandasPorDefecto = () => estado.bandas.size === 2 && estado.bandas.has('alta') && estado.bandas.has('media');
   let filtradas = [], pagina = 1;
 
   const norm = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
@@ -44,6 +49,8 @@
     estado.hasta = p.get('hasta') || '';
     estado.q = p.get('q') || '';
     estado.orden = p.get('orden') === 'relevancia' ? 'relevancia' : 'reciente';
+    const bandas = p.get('bandas');
+    if (bandas !== null) estado.bandas = new Set(bandas.split(',').filter(Boolean));
   }
   function escribirURL() {
     const p = new URLSearchParams();
@@ -55,12 +62,14 @@
     if (estado.hasta) p.set('hasta', estado.hasta);
     if (estado.q) p.set('q', estado.q);
     if (estado.orden !== 'reciente') p.set('orden', estado.orden);
+    if (!bandasPorDefecto()) p.set('bandas', [...estado.bandas].join(','));
     const qs = p.toString();
     try { history.replaceState(null, '', qs ? '?' + qs : location.pathname); } catch (_) { /* file:// */ }
   }
 
   /* ── Predicado de filtrado ── */
   function coincide(n, omitir) {
+    if (!estado.bandas.has(n.relevancia_banda)) return false;
     if (omitir !== 'fuente' && estado.fuente.size && !estado.fuente.has(n.fuente)) return false;
     if (omitir !== 'tema' && estado.tema.size && !(n.materias || []).some(m => estado.tema.has(m))) return false;
     if (omitir !== 'tipo' && estado.tipo.size && !estado.tipo.has(n.tipo)) return false;
@@ -86,6 +95,22 @@
   }
 
   /* ── Render ── */
+  function banda(rel) {
+    if (rel >= 80) return ['alta', 'Alta'];
+    if (rel >= 50) return ['media', 'Media'];
+    return ['informativa', 'Informativa'];
+  }
+
+  function segmentos(clave) {
+    const activos = { alta: 3, media: 2, informativa: 1 }[clave] || 1;
+    return [0, 1, 2].map(i => `<b class="${i < activos ? 'on' : ''}"></b>`).join('');
+  }
+
+  function resumenMostrado(texto) {
+    const t = (texto || '').trim();
+    return t && !'!?….'.includes(t.slice(-1)) ? t + '…' : t;
+  }
+
   function desgloseTexto(n) {
     const det = n.relevancia_detalle || {};
     return (det.factores || []).map(f => `${f.motivo} ${f.puntos >= 0 ? '+' : ''}${f.puntos}`).join(' · ');
@@ -93,6 +118,8 @@
 
   function tarjeta(n, q) {
     const esNuevo = MAXFECHA && n.fecha >= restarDias(MAXFECHA, 2);
+    const ficha = n.ficha || n.clave;
+    const [bandaClave, bandaEtiqueta] = banda(Number(n.relevancia) || 0);
     const mats = (n.materias || []).slice(0, 3).map(m =>
       `<a href="/novedades/materia/${esc(m)}.html" data-tema="${esc(m)}">${esc(MATERIAS[m] || m)}</a>`).join('');
     const pdf = n.pdf_url && n.pdf_url !== n.url
@@ -105,14 +132,14 @@
         ${mats ? `<div class="materias">${mats}</div>` : ''}
         <time class="nota__fecha" datetime="${esc(n.fecha)}">${esc(fechaCorta(n.fecha))}</time>
       </div>
-      <h3><a href="/novedades/${esc(n.clave)}.html">${resaltar(n.titulo, q)}</a></h3>
+      <h3><a href="/novedades/${esc(ficha)}.html">${resaltar(resumenMostrado(n.titulo), q)}</a></h3>
       <p class="nota__emisor">${resaltar(n.emisor, q)}</p>
-      <p class="nota__resumen">${resaltar(n.resumen, q)}</p>
+      <p class="nota__resumen">${resaltar(resumenMostrado(n.resumen), q)}</p>
       <div class="nota__pie">
-        <a class="cta" href="/novedades/${esc(n.clave)}.html">Leer ficha <span aria-hidden="true">→</span></a>
+        <a class="cta" href="/novedades/${esc(ficha)}.html">Leer ficha <span aria-hidden="true">→</span></a>
         <a class="fuente-ext" href="${esc(n.url)}" target="_blank" rel="noopener nofollow">Texto oficial ↗</a>
         ${pdf}
-        <span class="rel" title="Relevancia estimada ${esc(n.relevancia)} de 100${desgloseTexto(n) ? ': ' + esc(desgloseTexto(n)) : ''}"><span class="rel__lbl">Relevancia</span>${esc(n.relevancia)}<i style="--v:${Math.max(0, Math.min(100, Number(n.relevancia) || 0))}%"></i></span>
+        <span class="rel rel--${bandaClave}" title="Relevancia estimada ${esc(n.relevancia)} de 100${desgloseTexto(n) ? ': ' + esc(desgloseTexto(n)) : ''}"><span class="rel__lbl">Relevancia</span>${bandaEtiqueta}<i class="rel__segs" aria-hidden="true">${segmentos(bandaClave)}</i></span>
       </div>
     </article>`;
   }
@@ -164,6 +191,12 @@
       if (cont) cont.textContent = n;
       if (etiqueta) etiqueta.style.opacity = n === 0 ? '.45' : '';
     });
+    $$('[data-banda]').forEach(inp => {
+      const n = DATOS.filter(x => x.relevancia_banda === inp.dataset.banda).length;
+      const caja = inp.closest('label');
+      const cont = caja && caja.querySelector('.n');
+      if (cont) cont.textContent = n;
+    });
     const sel = $('#emisor');
     if (sel) {
       $$('option', sel).forEach(o => {
@@ -186,6 +219,10 @@
     if (estado.desde) piezas.push(['desde', estado.desde, 'Desde ' + fechaCorta(estado.desde)]);
     if (estado.hasta) piezas.push(['hasta', estado.hasta, 'Hasta ' + fechaCorta(estado.hasta)]);
     if (estado.q) piezas.push(['q', estado.q, `“${estado.q}”`]);
+    if (!bandasPorDefecto()) {
+      const dentro = ['alta', 'media', 'informativa'].filter(b => estado.bandas.has(b));
+      piezas.push(['bandas', '1', 'Relevancia: ' + (dentro.length ? dentro.join(' + ') : 'ninguna')]);
+    }
     cont.innerHTML = piezas.map(([f, v, t]) =>
       `<li><button class="chip-filtro" type="button" data-quitar="${f}" data-valor="${esc(v)}">${esc(t)} <span aria-hidden="true">×</span><span class="visualmente-oculto">Quitar filtro</span></button></li>`).join('');
     const limpiar = $('#limpiar');
@@ -204,6 +241,7 @@
       inp.checked = set instanceof Set && set.has(inp.dataset.valor);
     });
     const q = $('#q'); if (q) q.value = estado.q;
+    $$('[data-banda]').forEach(inp => { inp.checked = estado.bandas.has(inp.dataset.banda); });
     const em = $('#emisor'); if (em) em.value = estado.emisor;
     const or = $('#orden'); if (or) or.value = estado.orden;
     const de = $('#desde'); if (de) de.value = estado.desde;
@@ -231,6 +269,7 @@
     estado.fuente.clear(); estado.tema.clear(); estado.tipo.clear();
     estado.emisor = estado.desde = estado.hasta = estado.q = '';
     estado.orden = 'reciente';
+    estado.bandas = new Set(BANDAS_DEFECTO);
     aplicar();
   }
 
@@ -255,6 +294,14 @@
       const borrar = $('.borrar-q');
       if (borrar) borrar.addEventListener('click', () => { q.value = ''; estado.q = ''; aplicar(); q.focus(); });
     }
+
+    $$('[data-banda]').forEach(inp => {
+      inp.addEventListener('change', () => {
+        if (inp.checked) estado.bandas.add(inp.dataset.banda);
+        else estado.bandas.delete(inp.dataset.banda);
+        aplicar();
+      });
+    });
 
     const em = $('#emisor');
     if (em) em.addEventListener('change', () => { estado.emisor = em.value; aplicar(); });
@@ -285,6 +332,7 @@
       if (!b) return;
       const f = b.dataset.quitar, v = b.dataset.valor;
       if (f === 'fuente' || f === 'tema' || f === 'tipo') estado[f].delete(v);
+      else if (f === 'bandas') estado.bandas = new Set(BANDAS_DEFECTO);
       else estado[f] = '';
       aplicar();
     });
